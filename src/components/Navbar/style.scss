@@ -1,10 +1,21 @@
 .Navbar {
-    background-color: #58a727;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    z-index: 20;
 
     .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    &.scrolled {
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .brand {

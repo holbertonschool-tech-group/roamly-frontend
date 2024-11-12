@@ -1,0 +1,44 @@
+.Navbar {
+    background-color: #58a727;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .brand {
+        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
+
+        .title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 24px;
+
+        }
+
+        p {
+            color: var(--brand-color);
+            font-size: 10px;
+            font-weight: 600;
+            display: block;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        a {
+            padding: 1.5rem;
+            color: #fff;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+    }
+}

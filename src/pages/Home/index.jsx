@@ -1,6 +1,7 @@
 import AskQuote from "../../components/AskQuote";
 import Hero from "../../components/Hero";
 import ReservationBar from "../../components/ReservationBar";
+import Services from "../../components/Services";
 import './style.scss'
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
 
 
     <ReservationBar home />
+    <Services />
     <AskQuote />
   </div>;
 }

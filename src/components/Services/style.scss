@@ -1,0 +1,130 @@
+.Services {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 7em 0;
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        width: 50%;
+
+        .item {
+            width: 100%;
+            padding: 30px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
+            z-index: 0;
+
+            .icon {
+                width: 115px;
+                height: 80px;
+                margin-left: -35px;
+                margin-bottom: 10px;
+                background: var(--brand-color);
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+
+            .icon:after {
+                position: absolute;
+                top: -5px;
+                left: 0;
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 0 5px 5px;
+                border-color: transparent transparent #c7390d transparent;
+            }
+
+            h1 {
+                font-size: 18px;
+                font-weight: 500;
+                margin-bottom: 1rem;
+                color: #fff;
+            }
+
+            p {
+                margin-bottom: 1rem;
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
+
+
+        .item::after {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: '';
+            opacity: .5;
+            z-index: -1;
+        }
+
+        .item:nth-child(1):after {
+            background: #1089ff;
+        }
+
+        .item:nth-child(2):after {
+            background: #048998;
+        }
+
+        .item:nth-child(3):after {
+            background: #00a8b5;
+        }
+
+        .item:nth-child(4):after {
+            background: #ff5959;
+        }
+    }
+
+    .infos {
+        padding-left: 3rem;
+        width: 50%;
+
+        .cursive {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 5px;
+            color: #f15d30;
+            font-family: "Arizonia", cursive;
+        }
+
+        h1 {
+            color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 1.5rem;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #999999;
+            margin-bottom: 1rem;
+        }
+
+
+        button {
+            background: var(--brand-color);
+            border: 1px solid var(--brand-color);
+            color: #fff;
+            border-radius: 4px;
+            -webkit-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+            -moz-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+            box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+            padding: 1rem;
+            text-align: center;
+            font-size: 1rem;
+        }
+    }
+}

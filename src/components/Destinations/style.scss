@@ -1,0 +1,119 @@
+.Destinations {
+    width: 100%;
+    padding: 7em 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+
+    p {
+        font-size: 30px;
+        display: block;
+        margin-bottom: 5px;
+        color: #f15d30;
+        font-family: "Arizonia", cursive;
+        margin: 0 auto;
+        width: fit-content;
+    }
+
+    h1 {
+        width: fit-content;
+
+        margin: 0 auto;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 1.5rem;
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    .card {
+        position: relative;
+        height: 320px;
+        border-radius: 5px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin-top: 10px;
+        overflow: visible !important;
+
+        h1 {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            position: absolute;
+            top: 0;
+            left: 20px;
+            margin-top: -8px;
+            padding: 4px 10px;
+            background: #f15d30;
+        }
+
+        span {
+            position: absolute;
+            bottom: 20px;
+            right: -5px;
+            display: inline-block;
+            background: #f15d30;
+            padding: 4px 5px 4px 15px;
+            border-radius: 20px 0 0 20px;
+            color: #fff;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+
+            &::after {
+                position: absolute;
+                top: -5px;
+                right: 0;
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 5px 0 0 5px;
+                border-color: transparent transparent transparent #c7390d;
+            }
+        }
+
+        &:hover {
+            span {
+                padding-right: 20px;
+            }
+        }
+    }
+
+    .swiper-pagination-bullet-active {
+        background: var(--brand-color) !important;
+    }
+
+    .swiper-pagination-bullet {
+        height: 10px;
+        width: 10px;
+    }
+
+    .swiperContainer {
+
+
+
+        margin: 0 0 0 auto !important;
+        max-width: 1290px;
+    }
+
+    .mySwiper {
+        position: relative;
+        z-index: 1;
+        // overflow-y: visible;
+
+    }
+
+    .swiper-wrapper {
+        padding-bottom: 20px;
+
+    }
+
+    .swiper-pagination {
+        z-index: 10;
+        bottom: var(--swiper-pagination-bottom, -23px) !important;
+    }
+}

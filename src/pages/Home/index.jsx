@@ -1,4 +1,5 @@
 import AskQuote from "../../components/AskQuote";
+import Destinations from "../../components/Destinations";
 import Hero from "../../components/Hero";
 import ReservationBar from "../../components/ReservationBar";
 import Services from "../../components/Services";
@@ -12,6 +13,7 @@ function Home() {
 
     <ReservationBar home />
     <Services />
+    <Destinations />
     <AskQuote />
   </div>;
 }

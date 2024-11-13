@@ -1,13 +1,20 @@
 import { FaChevronRight } from "react-icons/fa";
-import HomeBg from "../../assets/images/home_bg.jpg";
 import HeroBg from "../../assets/images/hero_bg.jpg";
+import HomeBg from "../../assets/images/home_bg.jpg";
 
+import React, { useState } from 'react';
 import { IoIosPlay } from "react-icons/io";
-import "./style.scss";
-
+import 'react-modal-video/css/modal-video.css';
 import { Link } from "react-router-dom";
+import "./style.scss";
+import ModalVideo from "react-modal-video";
 
 function Hero({ home, title }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleClick() {
+    setIsOpen(!isOpen);
+  }
   return (
     <div className="Hero">
 
@@ -31,7 +38,7 @@ function Hero({ home, title }) {
                 circles
               </div>
             </div>
-            <button>
+            <button className="openBtn" onClick={handleClick}>
 
               <IoIosPlay size={32} />
             </button>
@@ -61,6 +68,14 @@ function Hero({ home, title }) {
           <div className="overlay"></div>
         </div>
       )}
+
+      <ModalVideo
+        channel="youtube"
+        autoplay
+        isOpen={isOpen}
+        videoId="vsBWQlI7By4"
+        onClose={() => setIsOpen(false)}
+      />
     </div>
   );
 }

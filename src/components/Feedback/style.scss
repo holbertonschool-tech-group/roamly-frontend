@@ -1,0 +1,114 @@
+.Feedback {
+    padding: 7em 0;
+    background-image: url('../../assets/images/bg_1.jpg');
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+
+    .sub {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 30px;
+        margin-bottom: 5px;
+        font-family: "Arizonia", cursive;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .container {
+        z-index: 2;
+        position: relative;
+    }
+
+    .head {
+        width: fit-content;
+        margin: 0 auto;
+        font-size: 40px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        content: '';
+        background: #207ce5;
+        background: -moz-linear-gradient(45deg, #207ce5 0%, #13d42a 100%);
+        background: -webkit-gradient(left bottom, right top, color-stop(0%, #207ce5), color-stop(100%, #13d42a));
+        background: -webkit-linear-gradient(45deg, #207ce5 0%, #13d42a 100%);
+        background: -o-linear-gradient(45deg, #207ce5 0%, #13d42a 100%);
+        background: -ms-linear-gradient(45deg, #207ce5 0%, #13d42a 100%);
+        background: linear-gradient(45deg, #207ce5 0%, #13d42a 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#207ce5', endColorstr='#13d42a', GradientType=1);
+        opacity: .6;
+    }
+
+    .mySwiper {
+        padding: 1rem 0;
+    }
+
+    .card {
+        display: block;
+        position: relative;
+        background: white;
+        padding: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.02);
+        -webkit-box-shadow: 0px 5px 21px -14px rgba(0, 0, 0, 0.14);
+        -moz-box-shadow: 0px 5px 21px -14px rgba(0, 0, 0, 0.14);
+        box-shadow: 0px 5px 21px -14px rgba(0, 0, 0, 0.14);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+
+        .stars {
+            margin-bottom: 1rem;
+
+            svg {
+                fill: var(--brand-color);
+                margin-right: 3px;
+            }
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #999999;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 1rem;
+
+            img {
+                width: 80px;
+                height: 80px;
+                position: relative;
+                border-radius: 0 50% 50% 50%;
+            }
+
+            h1 {
+                font-weight: 500;
+                font-size: 18px;
+                margin-bottom: 0;
+                color: #000000;
+            }
+
+            p {
+                font-size: 16px;
+                color: var(--brand-color);
+            }
+        }
+    }
+
+    .swiper-pagination {
+        display: none;
+    }
+}

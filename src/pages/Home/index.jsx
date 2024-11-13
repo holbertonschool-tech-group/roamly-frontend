@@ -1,6 +1,7 @@
 import AskQuote from "../../components/AskQuote";
 import Blog from "../../components/Blog";
 import Destinations from "../../components/Destinations";
+import Feedback from "../../components/Feedback";
 import Hero from "../../components/Hero";
 import ReservationBar from "../../components/ReservationBar";
 import Services from "../../components/Services";
@@ -15,6 +16,7 @@ function Home() {
       <Services />
       <Destinations />
       <Tours />
+      <Feedback />
       <Blog />
       <AskQuote />
     </div>

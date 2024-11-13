@@ -6,6 +6,7 @@ import Hero from "../../components/Hero";
 import ReservationBar from "../../components/ReservationBar";
 import Services from "../../components/Services";
 import Tours from "../../components/Tours";
+import VideoOverlay from "../../components/VideoOverlay";
 import "./style.scss";
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
       <Services />
       <Destinations />
       <Tours />
+      <VideoOverlay />
       <Feedback />
       <Blog />
       <AskQuote />

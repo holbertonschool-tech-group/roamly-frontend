@@ -14,7 +14,7 @@ function Hotel() {
   }
   return (
     <div className="Hotel ">
-      <Hero title={"Tours List"} />
+      <Hero title={"Hotel"} />
       <div className="container">
 
         <ReservationBar />

@@ -8,6 +8,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 import { blogs } from "./data";
 import "./style.scss";
+import BlogCard from "../BlogCard";
 
 function Blog() {
     return (
@@ -19,33 +20,7 @@ function Blog() {
             <div className="grid">
                 {blogs.map((elem) => {
                     return (
-                        <div className="card" key={elem.title}>
-                            <div
-                                className="img"
-                                style={{
-                                    backgroundImage: `url(${elem.img})`
-                                }}
-                            >
-                                <div className="price">
-                                    <div className="day">
-                                        {elem.day}
-                                    </div>
-                                    <div className="dates">
-                                        <div className="date">{elem.year}</div>
-                                        <div className="date">{elem.month}</div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div className="text">
-                                <div className="days">
-                                    {elem.duration}
-                                    days tour
-                                </div>
-                                <h3> {elem.title}</h3>
-                                <button>read more</button>
-                            </div>
-                        </div>
+                        <BlogCard key={elem.title} data={elem} />
                     );
                 })}
             </div>

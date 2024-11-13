@@ -8,8 +8,8 @@ import Home from './pages/Home/index.jsx'
 import Destination from './pages/Destination/index.jsx'
 import Contact from './pages/Contact/index.jsx'
 import Hotel from './pages/Hotel/index.jsx'
-import Blog from './pages/Blog/index.jsx'
 import './styles/_variables.scss'
+import Blog from './pages/Blog/index.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>

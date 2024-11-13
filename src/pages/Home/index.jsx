@@ -3,6 +3,7 @@ import Blog from "../../components/Blog";
 import Destinations from "../../components/Destinations";
 import Feedback from "../../components/Feedback";
 import Hero from "../../components/Hero";
+import Memorable from "../../components/Memorable";
 import ReservationBar from "../../components/ReservationBar";
 import Services from "../../components/Services";
 import Tours from "../../components/Tours";
@@ -18,6 +19,7 @@ function Home() {
       <Destinations />
       <Tours />
       <VideoOverlay />
+      <Memorable />
       <Feedback />
       <Blog />
       <AskQuote />

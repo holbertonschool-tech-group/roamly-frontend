@@ -1,0 +1,62 @@
+.Memorable {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    padding: 7em 0;
+    height: 100%;
+
+    .image {
+        margin-top: -200px;
+        -webkit-box-shadow: 0px 10px 23px -8px rgba(0, 0, 0, 0.11);
+        -moz-box-shadow: 0px 10px 23px -8px rgba(0, 0, 0, 0.11);
+        box-shadow: 0px 10px 23px -8px rgba(0, 0, 0, 0.11);
+        border: 15px solid #fff;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 50%;
+        height: max-content;
+        position: relative;
+        z-index: 10;
+    }
+
+    .infos {
+        padding-left: 3rem;
+        width: 50%;
+
+        .cursive {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 5px;
+            color: #f15d30;
+            font-family: "Arizonia", cursive;
+        }
+
+        h1 {
+            color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 1.5rem;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        p {
+            color: #999999;
+            margin-bottom: 1rem;
+        }
+
+
+        button {
+            background: var(--brand-color);
+            border: 1px solid var(--brand-color);
+            color: #fff;
+            border-radius: 4px;
+            -webkit-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+            -moz-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+            box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+            padding: 1rem;
+            text-align: center;
+            font-size: 1rem;
+        }
+    }
+}

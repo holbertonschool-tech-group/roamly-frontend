@@ -15,16 +15,17 @@ function ReservationBar({ home }) {
     };
     return (
         <div className='ReservationBar container'
-        //  style={{ marginTop: home ? '-100px' : '0' }}
+            style={{ marginTop: home ? '-100px' : '7rem' }}
         >
-            <div className="controls">
-                <button className={active == 'tour' && 'activeBtn'} onClick={() => {
-                    handleSection('tour')
-                }}>Search Tour</button>
-                <button className={active == 'hotel' && 'activeBtn'} onClick={() => {
-                    handleSection('hotel')
-                }}>Hotel</button>
-            </div>
+            {home &&
+                <div className="controls">
+                    <button className={active == 'tour' && 'activeBtn'} onClick={() => {
+                        handleSection('tour')
+                    }}>Search Tour</button>
+                    <button className={active == 'hotel' && 'activeBtn'} onClick={() => {
+                        handleSection('hotel')
+                    }}>Hotel</button>
+                </div>}
             <form action="">
                 <div className="input">
                     <div className='title'> Destination</div >

@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./style.scss";
 import AboutImg from '../../assets/images/about-1.jpg'
 

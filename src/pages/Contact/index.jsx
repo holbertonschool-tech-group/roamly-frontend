@@ -1,4 +1,5 @@
-import React from "react";
+import MapImg from '../../assets/images/map.png'
+
 import Hero from "../../components/Hero";
 import AskQuote from "../../components/AskQuote";
 import { contacts } from "./datas";
@@ -24,6 +25,16 @@ function Contact() {
 
           })
         }
+      </div>
+      <div className="lower">
+        <img src={MapImg} alt="" />
+        <form action="">
+          <input type="text" placeholder='Your Name' />
+          <input type="text" placeholder='Your Email' />
+          <input type="text" placeholder='Subject' />
+          <textarea name="" id="" placeholder='Message' cols={30} rows={7}></textarea>
+          <button>Send Message</button>
+        </form>
       </div>
     </div>
     <AskQuote />

@@ -1,6 +1,5 @@
 .Hero {
     height: 100vh;
-    padding: 7rem 0;
 
     .overlay {
         position: absolute;
@@ -143,8 +142,9 @@
     }
 }
 
-@media (max-width:1000px) {
+@media (max-width:700px) {
     .Hero {
+        padding: 0 !important;
 
         .texts {
             button {
@@ -154,7 +154,7 @@
             .head {
 
 
-                font-size: 40px;
+                font-size: 40px !important;
             }
         }
 
@@ -172,7 +172,7 @@
             .head {
 
 
-                font-size: 30px;
+                font-size: 30px !important;
             }
         }
     }

@@ -26,7 +26,7 @@ function Hero({ home, title }) {
           }}
         >
 
-          <div className="content">
+          <div className="content container">
             <div className="texts">
               <button className="openBtn" onClick={handleClick}>
 

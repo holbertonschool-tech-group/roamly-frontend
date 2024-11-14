@@ -30,7 +30,7 @@ function ReservationBar({ home }) {
                         handleSection('hotel')
                     }}>Hotel</button>
                 </div>}
-            <form action="">
+            <form action="" style={{ borderTopLeftRadius: home && 0 }}>
                 <div className="input">
                     <div className='title'> Destination</div >
                     <div className="field">

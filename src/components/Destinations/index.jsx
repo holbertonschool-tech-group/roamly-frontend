@@ -1,94 +1,86 @@
 import React from "react";
-import './style.scss'
+import "./style.scss";
 
-import {
-    Swiper,
-    SwiperSlide
-}
-
-from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import FooterImg from '../../assets/images/footer.png'
-
+import "swiper/css";
+import "swiper/css/pagination";
+import FooterImg from "../../assets/images/footer.png";
 
 // import required modules
-import {
-    Pagination
-}
+import { Pagination } from "swiper/modules";
 
-from 'swiper/modules';
-
-import {
-    cards
-}
-
-from "./card";
+import { cards } from "./card";
 
 function Destinations() {
-    return (<div className="Destinations "style= {
-                {
+    return (
+        <div
+            className="Destinations "
+            style={{
                 backgroundImage: `url(${FooterImg})`
-            }
-        }
+            }}
+        >
 
-        > <div className=""> <p>Pacific Provide Places</p> <h1>Select Your Destination</h1> <div className="swiperContainer"> <Swiper slidesPerView= {
-            4
-        }
+            <div className="">
 
-        spaceBetween= {
-            30
-        }
+                <p>Pacific Provide Places</p> <h1>Select Your Destination</h1>
+                <div className="swiperContainer">
 
-        pagination= {
-                {
-                clickable: true,
-            }
-        }
+                    <Swiper
+                        spaceBetween={30}
+                        pagination={{
+                            clickable: true
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper"
+                        initialSlide={2}
+                        loop={true}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 10,
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 30,
+                            },
+                        }}
+                    >
 
-        modules= {
-            [Pagination]
-        }
+                        {cards.map((card) => {
+                            return (
+                                <SwiperSlide
+                                    key={card.title}
+                                    className="card"
+                                    style={{
+                                        backgroundImage: `url(${card.img})`
+                                    }}
+                                >
 
-        className="mySwiper"
+                                    <div className="texts">
 
-        initialSlide= {
-            2
-        }
+                                        <h1> {card.title}</h1>
+                                        <span>
 
-        loop= {
-            true
-        }
+                                            {card.count}
 
-        > {
-            cards.map(card=> {
-                    return <SwiperSlide key= {
-                        card.title
-                    }
-
-                    className="card"style= {
-                            {
-                            backgroundImage: `url(${card.img})`
-                        }
-                    }
-
-                    > <div className="texts"> <h1> {
-                        card.title
-                    }
-
-                    </h1> <span> {
-                        card.count
-                    }
-
-                    Tours</span> </div> </SwiperSlide>
-                }
-
-            )
-        }
-
-        </Swiper> </div> </div> </div>);
+                                            {" "}
+                                            Tours
+                                        </span>
+                                    </div>
+                                </SwiperSlide>
+                            );
+                        })}
+                    </Swiper>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default Destinations;

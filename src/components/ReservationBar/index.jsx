@@ -14,8 +14,12 @@ function ReservationBar({ home }) {
         setDate(e.target.value);
     };
     return (
-        <div className='ReservationBar container'
-            style={{ marginTop: home ? '-100px' : '7rem' }}
+        <div className={
+            home ?
+                'ReservationBar container inHome' :
+                'ReservationBar container'
+        }
+        // style={{ marginTop: home ? '-100px' : '7rem' }}
         >
             {home &&
                 <div className="controls">

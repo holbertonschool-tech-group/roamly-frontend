@@ -5,11 +5,19 @@
     width: 100%;
     padding: 7em 0;
 
+    gap: 20px;
+
+
+
     .grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         width: 50%;
+
+        @media (max-width:1000px) {
+            grid-template-columns: 1fr;
+        }
 
         .item {
             width: 100%;
@@ -125,6 +133,24 @@
             padding: 1rem;
             text-align: center;
             font-size: 1rem;
+        }
+    }
+}
+
+@media (max-width:800px) {
+    .Services {
+        flex-direction: column;
+        max-width: 500px;
+
+        .infos {
+            order: 1;
+            width: 100% !important;
+            padding-left: 0 !important;
+        }
+
+        .grid {
+            order: 2;
+            width: 100% !important;
         }
     }
 }

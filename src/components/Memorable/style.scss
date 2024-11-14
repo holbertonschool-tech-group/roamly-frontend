@@ -5,6 +5,12 @@
     width: 100%;
     padding: 7em 0;
     height: 100%;
+    gap: 30px;
+
+    @media (max-width:800px) {
+        flex-direction: column;
+
+    }
 
     .image {
         margin-top: -200px;
@@ -16,6 +22,14 @@
         background-repeat: no-repeat;
         background-position: center center;
         width: 50%;
+        max-width: 540px;
+
+        @media (max-width:800px) {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         height: max-content;
         position: relative;
         z-index: 10;
@@ -24,6 +38,10 @@
     .infos {
         padding-left: 3rem;
         width: 50%;
+
+        @media (max-width:800px) {
+            width: 100%;
+        }
 
         .cursive {
             font-size: 30px;

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import './style.scss';
-import { navs } from './navs';
+import { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import "./style.scss";
+import { navs } from "./navs";
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -13,48 +13,72 @@ function Navbar() {
             setScrolled(window.scrollY > 0);
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
-        <div className={`Navbar ${scrolled ? 'scrolled' : ''}`}>
+        <div className={`Navbar ${scrolled ? "scrolled" : ""}`}>
             <div className="container">
-                <Link to='/' className="brand">
-                    <div className="title" style={{ color: scrolled && '#000000' }}>
+                <Link to="/" className="brand">
+                    <div className="title" style={{ color: scrolled && "#000000" }}>
                         Pacific
                     </div>
-                    <p>
-                        Travel Agency
-                    </p>
+                    <p>Travel Agency</p>
                 </Link>
                 <nav>
-                    {navs.map(nav => (
+                    {navs.map((nav) => (
                         <NavLink
-                            className='nav'
+                            className="nav"
                             to={nav.url}
                             key={nav.title}
                             style={({ isActive }) => ({
-                                color: isActive ? '#f15d30' : scrolled ? '#000000' : '#ffffff',
+                                color: isActive ? "#f15d30" : scrolled ? "#000000" : "#ffffff"
                             })}
                         >
                             {nav.title}
                         </NavLink>
                     ))}
                 </nav>
-                <button className="menu" onClick={handleNavCollapse}>menu</button>
-                <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="ftco-nav">
-                    <ul className="navbarMenu">
-                        {navs.map(nav => (
-                            <li className="nav-item active" key={nav}>
-                                <a href={nav.url} className="nav-link">{nav.title}</a>
-                            </li>
-                        ))}
+                <div className="mobileNav">
+                    <button
+                        className="menu"
+                        onClick={handleNavCollapse}
+                        style={{ color: scrolled }}
+                    >
+                        menu
+                    </button>
+                    <div
+                        className={`${isNavCollapsed ? "smallNav collapse" : "smallNav "}`}
+                        style={{
+                            backgroundColor: scrolled
+                                ? "#ffffff"
+                                : "#000000"
+                        }
+                        }
 
-
-                    </ul>
+                    >
+                        <ul className="navbarMenu ">
+                            {navs.map((nav) => (
+                                <li className="nav-item active container" key={nav} onClick={handleNavCollapse}>
+                                    <NavLink
+                                        to={nav.url}
+                                        style={({ isActive }) => ({
+                                            color: isActive
+                                                ? "#f15d30"
+                                                : scrolled
+                                                    ? "#000000"
+                                                    : "#ffffff"
+                                        })}
+                                        className="nav-link"
+                                    >
+                                        {nav.title}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
-
             </div>
         </div>
     );

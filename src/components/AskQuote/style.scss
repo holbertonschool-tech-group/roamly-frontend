@@ -10,6 +10,10 @@
     background-repeat: no-repeat;
     background-position: center center;
 
+    @media (max-width:800px) {
+        margin-bottom: 3rem;
+    }
+
     h1 {
         color: #fff;
         font-size: 24px;

@@ -31,7 +31,11 @@
         display: grid;
         gap: 30px;
         grid-template-columns: repeat(3, 1fr);
+        padding: 20px;
 
+        @media (max-width:800px) {
+            grid-template-columns: 1fr;
 
+        }
     }
 }

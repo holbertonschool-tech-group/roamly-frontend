@@ -10,9 +10,11 @@ import Contact from './pages/Contact/index.jsx'
 import Hotel from './pages/Hotel/index.jsx'
 import './styles/_variables.scss'
 import Blog from './pages/Blog/index.jsx'
+import ScrollToTop from './utils/ScrollToTop.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

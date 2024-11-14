@@ -55,3 +55,7 @@ button {
   border: none;
   cursor: pointer;
 }
+
+html {
+  scroll-behavior: smooth;
+}

@@ -27,8 +27,11 @@ function Hero({ home, title }) {
         >
 
           <div className="content">
-
             <div className="texts">
+              <button className="openBtn" onClick={handleClick}>
+
+                <IoIosPlay size={32} />
+              </button>
 
               <p>Welcome to Pacific</p>
               <div className="head">Discover Your Favorite Place with Us</div>

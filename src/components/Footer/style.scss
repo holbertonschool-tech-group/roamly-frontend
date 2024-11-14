@@ -10,6 +10,11 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
 
+        @media (max-width:800px) {
+            grid-template-columns: 1fr;
+
+        }
+
         &>*:nth-child(2),
         &>*:nth-child(3),
         &>*:nth-child(4) {
@@ -17,9 +22,14 @@
         }
 
         .elem {
-            padding-top: 3rem;
+            padding-top: 6rem;
             padding-left: 3rem !important;
             margin-bottom: 1.5rem !important;
+
+            @media (max-width:800px) {
+                padding-top: 1rem;
+
+            }
 
             .title {
                 margin-bottom: 40px;

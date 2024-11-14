@@ -21,7 +21,7 @@ function Destinations() {
                 <div className="swiperContainer">
 
                     <Swiper
-                        slidesPerView={4}
+
                         spaceBetween={30}
                         pagination={{
                             clickable: true,
@@ -30,6 +30,20 @@ function Destinations() {
                         className="mySwiper"
                         initialSlide={2}
                         loop={true}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 10,
+                            },
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 20,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 30,
+                            },
+                        }}
                     >
                         {cards.map(card => {
                             return <SwiperSlide key={card.title} className="card" style={{ backgroundImage: `url(${card.img})` }}>

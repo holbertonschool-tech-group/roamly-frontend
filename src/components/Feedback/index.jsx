@@ -20,7 +20,6 @@ function Feedback() {
                 <div className="sub">Testimonial</div>
                 <div className='head'>Tourist Feedback</div>
                 <Swiper
-                    slidesPerView={3}
                     spaceBetween={30}
                     pagination={{
                         clickable: true,
@@ -28,6 +27,20 @@ function Feedback() {
                     modules={[Pagination]}
                     className="mySwiper"
                     loop={true}
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                    }}
                 >
                     {
                         feedbacks.map(elem => {

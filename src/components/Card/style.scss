@@ -1,7 +1,10 @@
 .card {
     cursor: pointer;
-    margin: 0 auto;
-    max-width: 500px;
+
+    @media (max-width:800px) {
+        margin: 0 auto;
+        max-width: 500px;
+    }
 
     .img {
         display: block;

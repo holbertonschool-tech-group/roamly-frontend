@@ -1,6 +1,6 @@
-import React from "react";
-import "./style.scss";
 
+import "./style.scss";
+import { v4 as uuidv4 } from 'uuid';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -55,7 +55,7 @@ function Destinations() {
                         {cards.map((card) => {
                             return (
                                 <SwiperSlide
-                                    key={card.title}
+                                    key={uuidv4()}
                                     className="card"
                                     style={{
                                         backgroundImage: `url(${card.img})`

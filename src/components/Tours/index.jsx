@@ -1,10 +1,7 @@
-import { FaUmbrellaBeach } from "react-icons/fa";
-import { IoIosBed } from "react-icons/io";
-import { FaBath } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
+import { v4 as uuidv4 } from 'uuid';
+import Card from "../Card";
 import { tours } from "./data";
 import "./style.scss";
-import Card from "../Card";
 
 function Tours() {
     return (
@@ -15,7 +12,7 @@ function Tours() {
             <div className="grid">
                 {tours.map((elem) => {
                     return (
-                        <Card data={elem} key={elem.title} />
+                        <Card data={elem} key={uuidv4()} />
                     );
                 })}
             </div>

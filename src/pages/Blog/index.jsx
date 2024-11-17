@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
+import { useState } from "react";
 import AskQuote from "../../components/AskQuote";
 import BlogCard from "../../components/BlogCard";
 import Hero from "../../components/Hero";
@@ -19,7 +20,7 @@ function Blog() {
         <div className="grid">
           {
             blogs.map(tour => {
-              return <BlogCard key={tour.title} data={tour} />
+              return <BlogCard key={uuidv4()} data={tour} />
 
             })
           }
@@ -29,7 +30,7 @@ function Blog() {
             buttons.map(btn => {
               return <button className={selectedBtn == btn && 'active'} onClick={() => {
                 handleSelect(btn)
-              }} key={btn}>{btn}</button>
+              }} key={uuidv4()}>{btn}</button>
             })
           }
         </div>

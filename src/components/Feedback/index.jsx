@@ -1,6 +1,7 @@
 import { FaStar } from "react-icons/fa";
-import React from 'react'
+
 import './style.scss'
+import { v4 as uuidv4 } from 'uuid';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -44,7 +45,7 @@ function Feedback() {
                 >
                     {
                         feedbacks.map(elem => {
-                            return <SwiperSlide className='card' key={elem.text}>
+                            return <SwiperSlide className='card' key={uuidv4()}>
                                 <div className="stars">
                                     <FaStar />
                                     <FaStar />

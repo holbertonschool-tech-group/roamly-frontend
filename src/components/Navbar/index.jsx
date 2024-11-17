@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./style.scss";
@@ -31,7 +32,7 @@ function Navbar() {
                         <NavLink
                             className="nav"
                             to={nav.url}
-                            key={nav.title}
+                            key={uuidv4()}
                             style={({ isActive }) => ({
                                 color: isActive ? "#f15d30" : scrolled ? "#000000" : "#ffffff"
                             })}
@@ -60,7 +61,7 @@ function Navbar() {
                     >
                         <ul className="navbarMenu ">
                             {navs.map((nav) => (
-                                <li className="nav-item active container" key={nav} onClick={handleNavCollapse}>
+                                <li className="nav-item active container" key={uuidv4()} onClick={handleNavCollapse}>
                                     <NavLink
                                         to={nav.url}
                                         style={({ isActive }) => ({

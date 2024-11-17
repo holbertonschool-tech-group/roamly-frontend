@@ -1,7 +1,8 @@
 import { FaChevronDown } from "react-icons/fa6";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
-import React, { useState } from 'react'
+import { useState } from 'react'
+import PropTypes from 'prop-types';
 import './style.scss'
 function ReservationBar({ home }) {
     const [active, setactive] = useState('hotel');
@@ -83,5 +84,8 @@ function ReservationBar({ home }) {
         </div>
     )
 }
+ReservationBar.propTypes = {
+    home: PropTypes.bool,
+};
 
 export default ReservationBar

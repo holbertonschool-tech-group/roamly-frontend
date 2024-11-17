@@ -2,7 +2,8 @@ import { FaChevronRight } from "react-icons/fa";
 import HeroBg from "../../assets/images/hero_bg.jpg";
 import HomeBg from "../../assets/images/home_bg.jpg";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { IoIosPlay } from "react-icons/io";
 import 'react-modal-video/css/modal-video.css';
 import { Link } from "react-router-dom";
@@ -82,5 +83,9 @@ function Hero({ home, title }) {
     </div>
   );
 }
+Hero.propTypes = {
+  home: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+};
 
 export default Hero;

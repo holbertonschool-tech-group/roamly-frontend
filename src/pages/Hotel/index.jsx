@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Hero from "../../components/Hero";
 import ReservationBar from "../../components/ReservationBar";
 import Card from "../../components/Card";
 import { tours } from "./data";
+import { v4 as uuidv4 } from 'uuid';
 import './style.scss'
 import AskQuote from "../../components/AskQuote";
 function Hotel() {
@@ -21,7 +22,7 @@ function Hotel() {
         <div className="grid">
           {
             tours.map(tour => {
-              return <Card key={tour.title} data={tour} />
+              return <Card key={uuidv4()} data={tour} />
 
             })
           }
@@ -31,7 +32,7 @@ function Hotel() {
             buttons.map(btn => {
               return <button className={selectedBtn == btn && 'active'} onClick={() => {
                 handleSelect(btn)
-              }} key={btn}>{btn}</button>
+              }} key={uuidv4()}>{btn}</button>
             })
           }
         </div>

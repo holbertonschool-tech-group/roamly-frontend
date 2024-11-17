@@ -2,6 +2,7 @@ import { FaPaperPlane, FaPhoneAlt } from "react-icons/fa";
 import { FaFacebookF, FaInstagram, FaLocationDot, FaTwitter } from "react-icons/fa6";
 import { navsExperience, navsInfromation } from "./navs";
 import './style.scss';
+import { v4 as uuidv4 } from 'uuid';
 function Footer() {
 
     return (
@@ -24,7 +25,7 @@ function Footer() {
                     </div>
                     {
                         navsInfromation.map(nav => {
-                            return <a key={nav}>{nav}</a>
+                            return <a key={uuidv4()}>{nav}</a>
                         })
                     }
 
@@ -35,7 +36,7 @@ function Footer() {
                     </div>
                     {
                         navsExperience.map(nav => {
-                            return <a key={nav}>{nav}</a>
+                            return <a key={uuidv4()}>{nav}</a>
                         })
                     }
 

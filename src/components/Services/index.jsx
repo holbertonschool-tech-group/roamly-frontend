@@ -1,7 +1,7 @@
 
 import "./style.scss";
 import { items } from "./items";
-
+import { v4 as uuidv4 } from 'uuid';
 function Services() {
     return (
         <div className="Services container">
@@ -9,7 +9,7 @@ function Services() {
             <div className="grid">
                 {
                     items.map(item => {
-                        return <div className="item" key={item.title} style={{ backgroundImage: `url(${item.img})` }}>
+                        return <div className="item" key={uuidv4()} style={{ backgroundImage: `url(${item.img})` }}>
                             <div className="icon">
                                 {<item.icon fill="#ffffff" color="#ffffff" size={40} />}
                             </div>

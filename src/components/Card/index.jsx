@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 import './style.scss'
 import { FaBath, FaLocationDot, FaUmbrellaBeach } from 'react-icons/fa6'
 import { IoIosBed } from 'react-icons/io'
@@ -36,6 +36,18 @@ function Card({ data }) {
             </div>
         </div>
     )
+}
+Card.propTypes = {
+    data: PropTypes.shape({
+        img: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        duration: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        location: PropTypes.string.isRequired,
+        bathrooms: PropTypes.number.isRequired,
+        bedrooms: PropTypes.number.isRequired,
+        near: PropTypes.string.isRequired,
+    }).isRequired,
 }
 
 export default Card

@@ -1,5 +1,5 @@
-import React from 'react'
 import './style.scss'
+import PropTypes from 'prop-types'
 function BlogCard({ data }) {
     return (
         <div className="BlogCard" >
@@ -30,6 +30,16 @@ function BlogCard({ data }) {
             </div>
         </div>
     )
+}
+BlogCard.propTypes = {
+    data: PropTypes.shape({
+        img: PropTypes.string.isRequired,
+        day: PropTypes.string.isRequired,
+        year: PropTypes.string.isRequired,
+        month: PropTypes.string.isRequired,
+        duration: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+    }).isRequired,
 }
 
 export default BlogCard

@@ -1,5 +1,5 @@
 import MapImg from '../../assets/images/map.png'
-
+import { v4 as uuidv4 } from 'uuid';
 import Hero from "../../components/Hero";
 import AskQuote from "../../components/AskQuote";
 import { contacts } from "./datas";
@@ -12,7 +12,7 @@ function Contact() {
       <div className="contacts">
         {
           contacts.map(contact => {
-            return <div className="contact" key={contact.title}>
+            return <div className="contact" key={uuidv4()}>
 
               <div className="icon">
                 {

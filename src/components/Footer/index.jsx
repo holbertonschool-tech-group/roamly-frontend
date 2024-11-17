@@ -46,13 +46,13 @@ function Footer() {
                         Have a Questions?
                     </div>
                     <div className="url">
-                        <FaLocationDot fill="#f15d30" />
+                        <FaLocationDot fill="var(--brand-color)" />
                         <a >203 Fake St. Mountain View, San Francisco, California, USA</a>
                     </div>
                     <div className="url">
-                        <a ><FaPhoneAlt fill="#f15d30" />+2 392 3929 210</a></div>
+                        <a ><FaPhoneAlt fill="var(--brand-color)" />+2 392 3929 210</a></div>
                     <div className="url">
-                        <a ><FaPaperPlane fill="#f15d30" />info@yourdomain.com</a></div>
+                        <a ><FaPaperPlane fill="var(--brand-color)" />info@yourdomain.com</a></div>
                 </div>
             </div>
         </div>

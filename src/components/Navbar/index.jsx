@@ -34,7 +34,7 @@ function Navbar() {
                             to={nav.url}
                             key={uuidv4()}
                             style={({ isActive }) => ({
-                                color: isActive ? "#f15d30" : scrolled ? "#000000" : "#ffffff"
+                                color: isActive ? "var(--brand-color)" : scrolled ? "#000000" : "#ffffff"
                             })}
                         >
                             {nav.title}
@@ -66,7 +66,7 @@ function Navbar() {
                                         to={nav.url}
                                         style={({ isActive }) => ({
                                             color: isActive
-                                                ? "#f15d30"
+                                                ? "var(--brand-color)"
                                                 : scrolled
                                                     ? "#000000"
                                                     : "#ffffff"

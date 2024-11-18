@@ -12,8 +12,10 @@ import FooterImg from "../../assets/images/footer.png";
 import { Pagination } from "swiper/modules";
 
 import { cards } from "./card";
+import { useNavigate } from "react-router-dom";
 
 function Destinations() {
+    const navigate = useNavigate();
     return (
         <div
             className="Destinations "
@@ -59,6 +61,9 @@ function Destinations() {
                                     className="card"
                                     style={{
                                         backgroundImage: `url(${card.img})`
+                                    }}
+                                    onClick={() => {
+                                        navigate(`/destination?destination=${card.title}`)
                                     }}
                                 >
 

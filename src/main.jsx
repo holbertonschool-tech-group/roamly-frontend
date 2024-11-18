@@ -11,6 +11,7 @@ import Hotel from './pages/Hotel/index.jsx'
 import './styles/_variables.scss'
 import Blog from './pages/Blog/index.jsx'
 import ScrollToTop from './utils/ScrollToTop.jsx'
+import Detail from './pages/Detail/index.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
@@ -23,6 +24,9 @@ createRoot(document.getElementById('root')).render(
           <Route path="hotel" element={<Hotel />} />
           <Route path="blog" element={<Blog />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="details/:id" element={<Detail />} />
+
+
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>

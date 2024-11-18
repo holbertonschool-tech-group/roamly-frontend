@@ -14,7 +14,7 @@
 
 
         button {
-            color: gray;
+            color: #fff;
             padding: 10px 30px;
             border-radius: 0;
             margin-bottom: 0;
@@ -30,12 +30,12 @@
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             transition: all 0.3s ease;
-            background-color: #fff;
+            background: var(--brand-color);
         }
 
         .activeBtn {
-            color: #fff;
-            background: var(--brand-color);
+            color: gray;
+            background-color: #fff;
 
         }
     }

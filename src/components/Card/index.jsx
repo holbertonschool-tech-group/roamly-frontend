@@ -2,9 +2,13 @@ import PropTypes from 'prop-types'
 import './style.scss'
 import { FaBath, FaLocationDot, FaUmbrellaBeach } from 'react-icons/fa6'
 import { IoIosBed } from 'react-icons/io'
+import { useNavigate } from 'react-router-dom';
 function Card({ data }) {
+    const navigate = useNavigate();
     return (
-        <div className="card" >
+        <div className="card" onClick={() => {
+            navigate(`/details/${data.id}`)
+        }}>
             <div
                 className="img"
                 style={{
@@ -39,6 +43,7 @@ function Card({ data }) {
 }
 Card.propTypes = {
     data: PropTypes.shape({
+        id: PropTypes.string.isRequired,
         img: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
         duration: PropTypes.number.isRequired,

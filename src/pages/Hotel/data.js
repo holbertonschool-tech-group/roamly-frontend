@@ -1,6 +1,7 @@
 import hotel from "./../../assets/images/hotel-resto-4.jpg";
 export const tours = [
   {
+    id: 1,
     title: "Manila Hotel",
     price: 200,
     location: " Banaue, Ifugao, Philippines",
@@ -11,6 +12,7 @@ export const tours = [
     near: "Near Mountain"
   },
   {
+    id: 1,
     title: "Manila Hotel",
     price: 200,
     location: " Banaue, Ifugao, Philippines",
@@ -21,6 +23,7 @@ export const tours = [
     near: "Near Mountain"
   },
   {
+    id: 1,
     title: "Manila Hotel",
     price: 200,
     location: " Banaue, Ifugao, Philippines",
@@ -31,6 +34,7 @@ export const tours = [
     near: "Near Mountain"
   },
   {
+    id: 1,
     title: "Manila Hotel",
     price: 200,
     location: " Banaue, Ifugao, Philippines",
@@ -41,6 +45,7 @@ export const tours = [
     near: "Near Mountain"
   },
   {
+    id: 1,
     title: "Manila Hotel",
     price: 200,
     location: " Banaue, Ifugao, Philippines",
@@ -51,6 +56,7 @@ export const tours = [
     near: "Near Mountain"
   },
   {
+    id: 1,
     title: "Manila Hotel",
     price: 200,
     location: " Banaue, Ifugao, Philippines",
@@ -61,6 +67,7 @@ export const tours = [
     near: "Near Mountain"
   },
   {
+    id: 1,
     title: "Manila Hotel",
     price: 200,
     location: " Banaue, Ifugao, Philippines",
@@ -71,6 +78,7 @@ export const tours = [
     near: "Near Mountain"
   },
   {
+    id: 1,
     title: "Manila Hotel",
     price: 200,
     location: " Banaue, Ifugao, Philippines",
@@ -81,6 +89,7 @@ export const tours = [
     near: "Near Mountain"
   },
   {
+    id: 1,
     title: "Manila Hotel",
     price: 200,
     location: " Banaue, Ifugao, Philippines",

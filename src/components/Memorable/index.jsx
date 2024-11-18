@@ -1,8 +1,10 @@
 
 import "./style.scss";
 import AboutImg from '../../assets/images/about-1.jpg'
+import { useNavigate } from "react-router-dom";
 
 function Memorable() {
+    const navigate = useNavigate()
     return (
         <div className="Memorable container">
 
@@ -16,7 +18,9 @@ function Memorable() {
                     Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
                 </p>
 
-                <button>Book Your Destination</button>
+                <button onClick={() => {
+                    navigate('/destination')
+                }}> Book Your Destination</button>
             </div>
         </div>
     );

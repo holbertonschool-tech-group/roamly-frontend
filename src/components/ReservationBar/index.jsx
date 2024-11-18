@@ -4,8 +4,10 @@ import { IoSearch } from "react-icons/io5";
 import { useState } from 'react'
 import PropTypes from 'prop-types';
 import './style.scss'
+import { useNavigate } from "react-router-dom";
 function ReservationBar({ home }) {
-    const [active, setactive] = useState('hotel');
+    const [active, setactive] = useState('destination');
+    const navigate = useNavigate()
     function handleSection(value) {
         setactive(value)
     }
@@ -20,10 +22,10 @@ function ReservationBar({ home }) {
         >
             {home &&
                 <div className="controls">
-                    <button className={active == 'tour' && 'activeBtn'} onClick={() => {
-                        handleSection('tour')
+                    <button className={active !== 'destination' && 'activeBtn'} onClick={() => {
+                        handleSection('destination')
                     }}>Search Tour</button>
-                    <button className={active == 'hotel' && 'activeBtn'} onClick={() => {
+                    <button className={active !== 'hotel' && 'activeBtn'} onClick={() => {
                         handleSection('hotel')
                     }}>Hotel</button>
                 </div>}
@@ -79,7 +81,9 @@ function ReservationBar({ home }) {
                     </div>
                 </div>
 
-                <button className='search'>Search</button>
+                <button className='search' onClick={() => {
+                    navigate(`/${active}`)
+                }}>Search</button>
             </form>
         </div>
     )

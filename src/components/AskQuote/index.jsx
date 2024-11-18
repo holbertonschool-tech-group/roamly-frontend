@@ -15,7 +15,9 @@ function AskQuote() {
                     We can manage your dream building A small river named Duden flows by
                     their place
                 </p>
-                <button>Ask for a quote</button>
+                <div className="btnCont">
+                    <a href="mailto: info@yourdomain.com">Ask for a quote</a>
+                </div>
             </div>
         </div>
     );

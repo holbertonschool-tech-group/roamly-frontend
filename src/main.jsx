@@ -12,24 +12,29 @@ import './styles/_variables.scss'
 import Blog from './pages/Blog/index.jsx'
 import ScrollToTop from './utils/ScrollToTop.jsx'
 import Detail from './pages/Detail/index.jsx'
+import { Provider } from 'react-redux'
+import { store } from './redux/store.js'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="destination" element={<Destination />} />
-          <Route path="hotel" element={<Hotel />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="details/:id" element={<Detail />} />
+    <Provider store={store}>
+
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="destination" element={<Destination />} />
+            <Route path="hotel" element={<Hotel />} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="details/:id" element={<Detail />} />
 
 
-          {/* <Route path="*" element={<NoPage />} /> */}
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            {/* <Route path="*" element={<NoPage />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </StrictMode>,
 )

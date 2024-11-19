@@ -8,6 +8,7 @@ import './style.scss'
 import AskQuote from "../../components/AskQuote";
 import { useSearchParams } from "react-router-dom";
 import { formatDate } from "../../utils/functions";
+import { useSelector } from "react-redux";
 function Hotel() {
   const buttons = ['<', 1, 2, 3, 4, 5, 6, '>']
   const [selectedBtn, setselectedBtn] = useState(1);
@@ -21,6 +22,7 @@ function Hotel() {
   const checkInDate = searchParams.get("checkInDate") || "";
   const checkOutDate = searchParams.get("checkOutDate") || "";
   const priceLimit = searchParams.get("priceLimit") || "";
+  const hotels = useSelector(state => state.hotel.hotels)
   return (
     <div className="Hotel ">
       <Hero title={"Hotel"} />

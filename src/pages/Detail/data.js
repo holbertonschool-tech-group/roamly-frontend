@@ -100,3 +100,34 @@ export const tours = [
     near: "Near Mountain"
   }
 ];
+
+export const categories = [
+  {
+    title: "Staff",
+    points: 85
+  },
+  {
+    title: "Facilities",
+    points: 80
+  },
+  {
+    title: "Cleanliness",
+    points: 84
+  },
+  {
+    title: "Comfort",
+    points: 84
+  },
+  {
+    title: "Value for money",
+    points: 77
+  },
+  {
+    title: "Location",
+    points: 91
+  },
+  {
+    title: "Free WIFI",
+    points: 95
+  }
+];

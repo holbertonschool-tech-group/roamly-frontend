@@ -1,5 +1,6 @@
 .detailPage {
-    padding-top: 120px;
+    padding: 120px 10px;
+    width: 100%;
 
     .imgs {
         width: 100%;
@@ -40,14 +41,23 @@
     }
 
     .info {
-        margin-top: 30px;
+        margin: 30px 0;
         display: flex;
         align-items: start;
         justify-content: space-between;
         gap: 10%;
+        width: 100%;
+
+        @media (max-width:800px) {
+            flex-wrap: wrap;
+        }
 
         .description {
             opacity: 0.8;
+
+            @media (max-width:800px) {
+                margin-bottom: 20px;
+            }
         }
 
         .book {
@@ -56,12 +66,14 @@
             background-color: #EEEFF1;
             height: 300px;
             width: 100%;
-            min-width: 400px;
+            min-width: 300px;
+            max-width: 300px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-direction: column;
+            margin: 0 auto;
 
             .texts {
                 width: 100%;
@@ -119,15 +131,19 @@
 
     .categories {
         ul {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             align-items: center;
             justify-content: left;
             flex-wrap: wrap;
             width: 100%;
             gap: 20px;
 
+            @media (max-width:500px) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             li {
-                width: 30%;
                 margin: 20px 0;
                 list-style: none;
                 font-weight: 500;
@@ -136,6 +152,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    gap: 10px;
                     text-transform: capitalize;
                     width: 100%;
                 }
@@ -173,7 +190,7 @@
                 border: 1px solid #EEEFF1;
                 padding: 20px;
                 border-radius: 5px;
-
+                width: 100%;
 
 
                 .head {

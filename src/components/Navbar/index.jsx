@@ -1,28 +1,35 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "./style.scss";
 import { navs } from "./navs";
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+    let location = useLocation();
 
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 0);
-        };
 
-        window.addEventListener("scroll", handleScroll);
+        };
+        location.pathname.includes('details') && setScrolled(true)
+        !location.pathname.includes('details') && window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
-        <div className={`Navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className={`Navbar ${scrolled ? "scrolled" : ""}`}
+            style={{
+                backgroundColor: location.pathname.includes('details') && scrolled && "#ffffff"
+            }}
+        >
             <div className="container">
+
                 <Link to="/" className="brand">
-                    <div className="title" style={{ color: scrolled && "#000000" }}>
+                    <div className="title" style={{ color: scrolled ? "#000000" : '' }}>
                         Pacific
                     </div>
                     <p>Travel Agency</p>
@@ -34,7 +41,7 @@ function Navbar() {
                             to={nav.url}
                             key={uuidv4()}
                             style={({ isActive }) => ({
-                                color: isActive ? "var(--brand-color)" : scrolled ? "#000000" : "#ffffff"
+                                color: isActive ? "var(--brand-color)" : scrolled ? "#000000" : location.pathname.includes('details') ? "#000000" : "#ffffff"
                             })}
                         >
                             {nav.title}

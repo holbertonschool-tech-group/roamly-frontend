@@ -31,7 +31,8 @@
             color: #fff;
             font-weight: 700;
             font-size: 24px;
-
+            // -webkit-filter: invert(100%);
+            // filter: invert(100%);
         }
 
         p {
@@ -93,7 +94,7 @@
 
     }
 
-    @media (min-width:800px) {
+    @media (min-width:1000px) {
         .mobileNav {
             display: none !important;
 
@@ -133,7 +134,7 @@
 }
 
 
-@media (min-width:800px) {
+@media (min-width:1000px) {
     .mobileNav {
         display: none;
     }

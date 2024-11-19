@@ -9,16 +9,10 @@
             max-height: 400px;
             object-fit: cover;
             border-radius: 5px;
+            width: 100%;
         }
 
-        .img1 {
-            width: 59%;
-            margin-right: 1%;
-        }
 
-        .img2 {
-            width: 40%;
-        }
     }
 
     .head {
@@ -42,6 +36,84 @@
     .location {
         svg {
             fill: var(--brand-color);
+        }
+    }
+
+    .info {
+        margin-top: 30px;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        gap: 10%;
+
+        .description {
+            opacity: 0.8;
+        }
+
+        .book {
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #EEEFF1;
+            height: 300px;
+            width: 100%;
+            min-width: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+
+            .texts {
+                width: 100%;
+
+                h2 {
+                    font-weight: 600;
+                }
+
+                .price {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    p {
+                        text-transform: capitalize;
+                        opacity: 0.8;
+                    }
+
+                    h4 {
+                        font-size: 30px;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+
+
+            button {
+                padding: 10px 15px;
+                width: 100%;
+                background-color: var(--brand-color);
+                color: #fff;
+                border-radius: 5px;
+
+            }
+
+            ul {
+                margin: 20px 0;
+
+                li {
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: left;
+                    gap: 10px;
+
+                    svg {
+                        fill: var(--brand-color);
+                    }
+                }
+            }
         }
     }
 }

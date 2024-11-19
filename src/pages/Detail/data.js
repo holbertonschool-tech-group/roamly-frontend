@@ -9,7 +9,39 @@ export const tours = [
     bedrooms: 3,
     imgs: [hotel, hotel, hotel, hotel],
     duration: 8,
-    near: "Near Mountain"
+    near: "Near Mountain",
+    reviews: [
+      {
+        name: "Natalie",
+        country: "🇬🇧 United Kingdom",
+        content: "Excellent breakfast, liked sitting looking at the garden"
+      },
+      {
+        name: "Natalie",
+        country: "🇬🇧 United Kingdom",
+        content: "Excellent breakfast, liked sitting looking at the garden"
+      },
+      {
+        name: "Natalie",
+        country: "🇬🇧 United Kingdom",
+        content: "Excellent breakfast, liked sitting looking at the garden"
+      },
+      {
+        name: "Natalie",
+        country: "🇬🇧 United Kingdom",
+        content: "Excellent breakfast, liked sitting looking at the garden"
+      },
+      {
+        name: "Natalie",
+        country: "🇬🇧 United Kingdom",
+        content: "Excellent breakfast, liked sitting looking at the garden"
+      },
+      {
+        name: "Natalie",
+        country: "🇬🇧 United Kingdom",
+        content: "Excellent breakfast, liked sitting looking at the garden"
+      }
+    ]
   },
   {
     id: 1,

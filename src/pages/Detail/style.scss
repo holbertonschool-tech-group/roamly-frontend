@@ -158,4 +158,72 @@
             }
         }
     }
+
+    .feedbacks {
+        margin-top: 30px;
+
+        h3 {
+            margin-bottom: 20px;
+        }
+
+        .reviews {
+            width: 100%;
+
+            .card {
+                border: 1px solid #EEEFF1;
+                padding: 20px;
+                border-radius: 5px;
+
+
+
+                .head {
+                    display: flex;
+                    align-items: center;
+                    justify-content: left;
+                    margin-bottom: 20px;
+                    gap: 10px;
+
+                    .img {
+                        height: 50px;
+                        width: 50px;
+                        background-color: greenyellow;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 30px;
+                        color: #fff;
+                    }
+
+                    .about {
+
+                        .name {
+                            font-weight: 500;
+                            font-size: 18px;
+                        }
+
+                        .country {
+                            font-size: 14px;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: var(--brand-color);
+        fill: var(--brand-color);
+    }
+
+    .swiper-pagination-bullet-active {
+
+        background: var(--brand-color)
+    }
+
+    .swiper-pagination {
+        display: none;
+    }
 }

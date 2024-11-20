@@ -18,20 +18,28 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import "swiper/css/pagination";
 // import required modules
+import { useState } from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import AskQuote from "../../components/AskQuote";
+import OrderModal from "../../components/OrderModal";
 
 function Detail() {
     const { id } = useParams();
+    const [open, setOpen] = useState(false);
     // <p>ID: {id}</p>
     const data = tours[0];
+    const handleClose = () => {
+        setOpen(false);
 
+    }
     return (
         <>
+            {
+                open && <OrderModal handleClose={handleClose} data={data} />
+            }
             <div className="detailPage container">
                 <Swiper
 
@@ -96,22 +104,24 @@ function Detail() {
                             <h2>Reserve</h2>
                             <ul>
                                 <li>
-                                    <IoIosBed size={20} /> {data.bathrooms}
+                                    <IoIosBed size={20} /> {data.bathrooms}{" "}
                                     bathrooms
                                 </li>
                                 <li>
-                                    <FaBath size={20} /> {data.bedrooms}
+                                    <FaBath size={20} /> {data.bedrooms}{" "}
                                     bedrooms
                                 </li>
                                 <li>
-                                    <IoCar size={20} /> Free Parking
+                                    <IoCar size={20} /> Free Parking{" "}
                                 </li>
                             </ul>
                             <div className="price">
                                 <p>total</p> <h4>$ {data.price}</h4>
                             </div>
                         </div>
-                        <button>Order</button>
+                        <button onClick={() => {
+                            setOpen(true)
+                        }}>Order</button>
                     </div>
                 </div>
                 <div className="categories">

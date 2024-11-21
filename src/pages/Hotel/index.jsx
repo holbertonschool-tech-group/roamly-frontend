@@ -37,6 +37,20 @@ function Hotel() {
   const checkOutDate = searchParams.get("checkOutDate") || "";
   const priceLimit = searchParams.get("priceLimit") || "";
 
+  const handleReservation = async (userId, hotelId) => {
+    try {
+      const response = await axios.post("http://localhost:5000/reservations", {
+        user_id: userId,
+        hotel_id: hotelId,
+        check_in: checkInDate,
+        check_out: checkOutDate
+      });
+      console.log("Reservation created successfully:", response.data);
+    } catch (error) {
+      console.error("Error creating reservation:", error);
+    }
+  };
+
   return (
     <div className="Hotel ">
       <Hero title={"Hotel"} />
@@ -55,7 +69,12 @@ function Hotel() {
         )}
         <div className="grid">
           {hotels.map((hotel) => {
-            return <Card key={uuidv4()} data={hotel} />;
+            return (
+              <div key={uuidv4()}>
+                <Card data={hotel} />
+                <button onClick={() => handleReservation(1, hotel.id)}>Reserve</button>
+              </div>
+            );
           })}
         </div>
         <div className="btns">

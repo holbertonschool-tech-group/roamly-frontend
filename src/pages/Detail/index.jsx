@@ -69,9 +69,9 @@ function Detail() {
 
     const favs = JSON.parse(localStorage.getItem('favorites')) || []
     useEffect(() => {
-        setinFavorites(favs.find(elem => elem == id))
+        setinFavorites(favs.find(elem => elem.id == id && elem.category == category))
 
-    }, [favs, id]);
+    }, [id]);
 
     function handleFav() {
         if (inFavorites) {

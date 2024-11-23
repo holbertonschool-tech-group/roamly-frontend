@@ -12,7 +12,7 @@ function Tours() {
             <div className="grid">
                 {tours.map((elem) => {
                     return (
-                        <Card data={elem} key={uuidv4()} />
+                        <Card data={elem} key={uuidv4()} type='destination' />
                     );
                 })}
             </div>

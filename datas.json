@@ -1,109 +1,566 @@
-[
-    {
-        "id": 1,
-        "title": "Manila Hotel",
-        "price": 200,
-        "location": "Banaue, Ifugao, Philippines",
-        "bathrooms": 2,
-        "bedrooms": 3,
-        "img": [
-            "hotel1.jpg"
-        ],
-        "duration": 8,
-        "near": "Near Mountain",
-        "description": "A charming hotel located in the scenic Banaue, Ifugao, offering a peaceful escape near the mountains. The perfect place to unwind and enjoy the natural beauty of the Philippines.",
-        "categories": [
-            {
-                "name": "Staff",
-                "rating": 8.5
-            },
-            {
-                "name": "Facilities",
-                "rating": 8
-            },
-            {
-                "name": "Cleanliness",
-                "rating": 8.4
-            },
-            {
-                "name": "Comfort",
-                "rating": 8.4
-            },
-            {
-                "name": "Value for money",
-                "rating": 7.7
-            },
-            {
-                "name": "Location",
-                "rating": 9.1
-            },
-            {
-                "name": "Free WIFI",
-                "rating": 9.5
-            }
-        ],
-        "comments": [
-            {
-                "name": "Natalie",
-                "country": "🇬🇧 United Kingdom",
-                "content": "Excellent breakfast, liked sitting looking at the garden",
-                "like": 0
-            }
-        ],
-        "review": 5
-    },
-    {
-        "id": 2,
-        "title": "Cape Town Lodge",
-        "price": 250,
-        "location": "Cape Town, South Africa",
-        "bathrooms": 1,
-        "bedrooms": 2,
-        "img": [
-            "hotel2.jpg"
-        ],
-        "duration": 5,
-        "near": "Near Beach",
-        "description": "Located in the vibrant city of Cape Town, this lodge offers a relaxing stay with stunning beach views and excellent service. It's a perfect blend of comfort and convenience.",
-        "categories": [
-            {
-                "name": "Staff",
-                "rating": 9
-            },
-            {
-                "name": "Facilities",
-                "rating": 8.5
-            },
-            {
-                "name": "Cleanliness",
-                "rating": 9
-            },
-            {
-                "name": "Comfort",
-                "rating": 8.8
-            },
-            {
-                "name": "Value for money",
-                "rating": 7.9
-            },
-            {
-                "name": "Location",
-                "rating": 9.4
-            },
-            {
-                "name": "Free WIFI",
-                "rating": 9.3
-            }
-        ],
-        "comments": [
-            {
-                "name": "Sophia",
-                "country": "🇦🇺 Australia",
-                "content": "Beautiful views and great service.",
-                "like": 0,
-                "review": 4
-            }
-        ],
-        "review": 3
-    }
-]
+{
+    "hotels": [
+        {
+            "id": 2,
+            "title": "Oceanview Resort",
+            "price": 250,
+            "location": "Palawan, Philippines",
+            "bathrooms": 3,
+            "bedrooms": 4,
+            "img": [
+                "https://www.oceanviewresort.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/12345678.jpg?k=abcdef123456",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/98765432.jpg?k=9876d8e9f3dcb4a70a5a431b3bb9bbaed9",
+                "https://images.trvl-media.com/lodging/1000000/40000/35400/35345/d7f1f4b7.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 5,
+            "near": "Near the Beach",
+            "description": "A relaxing beachfront resort offering stunning ocean views, perfect for a serene escape. Ideal for beach lovers and those seeking tranquility.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 9.0
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 8.7
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 9.2
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 8.9
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.3
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.5
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 9.8
+                }
+            ],
+            "comments": [
+                {
+                    "name": "Michael",
+                    "country": "🇺🇸 United States",
+                    "content": "Amazing sunsets! Loved the view from our balcony.",
+                    "like": 2
+                }
+            ],
+            "review": 4.9
+        },
+        {
+            "id": 3,
+            "title": "Sunset Villa",
+            "price": 350,
+            "location": "Cebu, Philippines",
+            "bathrooms": 2,
+            "bedrooms": 3,
+            "img": [
+                "https://www.sunsetvilla.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/11223344.jpg?k=5678f6e1ffabcd4321f",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/22334455.jpg?k=ghijk6789",
+                "https://images.trvl-media.com/lodging/1000000/30000/24000/23999/1a2b3c4d.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 6,
+            "near": "Near the Ocean",
+            "description": "A luxurious villa offering stunning sunset views over the ocean. A perfect place for a romantic getaway or a relaxing retreat.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 9.5
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 9.0
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 9.3
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 9.1
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.8
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.7
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 9.9
+                }
+            ],
+            "comments": [
+                {
+                    "name": "Sophia",
+                    "country": "🇨🇦 Canada",
+                    "content": "Incredible villa! The sunset view was unforgettable.",
+                    "like": 3
+                }
+            ],
+            "review": 5
+        },
+        {
+            "id": 4,
+            "title": "Mountain Escape Lodge",
+            "price": 180,
+            "location": "Baguio, Philippines",
+            "bathrooms": 1,
+            "bedrooms": 2,
+            "img": [
+                "https://www.mountainlodge.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/45454544.jpg?k=abc124xyz0987",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/77788899.jpg?k=fghj678klo",
+                "https://images.trvl-media.com/lodging/1000000/50000/40000/39999/2c3d4e5f.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 7,
+            "near": "Near the Forest",
+            "description": "Located in the cool and scenic mountains of Baguio, this lodge offers a cozy and peaceful retreat surrounded by nature.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 8.7
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 7.9
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 8.4
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 8.2
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.0
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.2
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 8.9
+                }
+            ],
+            "comments": [
+                {
+                    "name": "James",
+                    "country": "🇦🇺 Australia",
+                    "content": "A great stay if you're looking for peace and quiet.",
+                    "like": 1
+                }
+            ],
+            "review": 4.7
+        },
+        {
+            "id": 5,
+            "title": "Lagoon View Resort",
+            "price": 220,
+            "location": "Siargao, Philippines",
+            "bathrooms": 2,
+            "bedrooms": 3,
+            "img": [
+                "https://www.lagoonviewresort.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/55555544.jpg?k=xyz0987abcd1234",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/33322211.jpg?k=mlkjh9nb098",
+                "https://images.trvl-media.com/lodging/1000000/50000/45000/44999/6d7e8a9c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 4,
+            "near": "Near the Lagoon",
+            "description": "A tropical resort with beautiful views of the lagoon, perfect for a peaceful stay and water activities. Experience island life at its best.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 9.2
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 8.4
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 9.0
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 8.6
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.2
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.0
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 9.6
+                }
+            ],
+            "comments": [
+                {
+                    "name": "Olivia",
+                    "country": "🇩🇪 Germany",
+                    "content": "The lagoon view is mesmerizing, loved the kayaking experience!",
+                    "like": 4
+                }
+            ],
+            "review": 4.8
+        },
+        {
+            "id": 6,
+            "title": "The Heritage Inn",
+            "price": 150,
+            "location": "Vigan, Philippines",
+            "bathrooms": 1,
+            "bedrooms": 2,
+            "img": [
+                "https://www.heritageinn.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/33399977.jpg?k=lmno1234pqrs5678",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/11122233.jpg?k=xyz987654321",
+                "https://images.trvl-media.com/lodging/1000000/60000/54000/53999/c0b9a9d6.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 3,
+            "near": "Near Historical Sites",
+            "description": "A charming inn nestled in the heart of the historic city of Vigan, offering a traditional experience with modern comforts.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 8.3
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 7.8
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 8.6
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 8.1
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.4
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.3
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 9.0
+                }
+            ],
+            "comments": [
+                {
+                    "name": "Liam",
+                    "country": "🇳🇱 Netherlands",
+                    "content": "Great location to explore the heritage of Vigan, highly recommend!",
+                    "like": 1
+                }
+            ],
+            "review": 4.6
+        }
+    ],
+    "destinations": [
+        {
+            "id": 2,
+            "title": "Oceanview Resort",
+            "price": 250,
+            "location": "Palawan, Philippines",
+            "bathrooms": 3,
+            "bedrooms": 4,
+            "img": [
+                "https://www.oceanviewresort.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/12345678.jpg?k=abcdef123456",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/98765432.jpg?k=9876d8e9f3dcb4a70a5a431b3bb9bbaed9",
+                "https://images.trvl-media.com/lodging/1000000/40000/35400/35345/d7f1f4b7.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 5,
+            "near": "Near the Beach",
+            "description": "A relaxing beachfront resort offering stunning ocean views, perfect for a serene escape. Ideal for beach lovers and those seeking tranquility.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 9.0
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 8.7
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 9.2
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 8.9
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.3
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.5
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 9.8
+                }
+            ],
+            "comments": [
+                {
+                    "name": "Michael",
+                    "country": "🇺🇸 United States",
+                    "content": "Amazing sunsets! Loved the view from our balcony.",
+                    "like": 2
+                }
+            ],
+            "review": 4.9
+        },
+        {
+            "id": 3,
+            "title": "Sunset Villa",
+            "price": 350,
+            "location": "Cebu, Philippines",
+            "bathrooms": 2,
+            "bedrooms": 3,
+            "img": [
+                "https://www.sunsetvilla.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/11223344.jpg?k=5678f6e1ffabcd4321f",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/22334455.jpg?k=ghijk6789",
+                "https://images.trvl-media.com/lodging/1000000/30000/24000/23999/1a2b3c4d.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 6,
+            "near": "Near the Ocean",
+            "description": "A luxurious villa offering stunning sunset views over the ocean. A perfect place for a romantic getaway or a relaxing retreat.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 9.5
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 9.0
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 9.3
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 9.1
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.8
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.7
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 9.9
+                }
+            ],
+            "comments": [
+                {
+                    "name": "Sophia",
+                    "country": "🇨🇦 Canada",
+                    "content": "Incredible villa! The sunset view was unforgettable.",
+                    "like": 3
+                }
+            ],
+            "review": 5
+        },
+        {
+            "id": 4,
+            "title": "Mountain Escape Lodge",
+            "price": 180,
+            "location": "Baguio, Philippines",
+            "bathrooms": 1,
+            "bedrooms": 2,
+            "img": [
+                "https://www.mountainlodge.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/45454544.jpg?k=abc124xyz0987",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/77788899.jpg?k=fghj678klo",
+                "https://images.trvl-media.com/lodging/1000000/50000/40000/39999/2c3d4e5f.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 7,
+            "near": "Near the Forest",
+            "description": "Located in the cool and scenic mountains of Baguio, this lodge offers a cozy and peaceful retreat surrounded by nature.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 8.7
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 7.9
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 8.4
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 8.2
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.0
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.2
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 8.9
+                }
+            ],
+            "comments": [
+                {
+                    "name": "James",
+                    "country": "🇦🇺 Australia",
+                    "content": "A great stay if you're looking for peace and quiet.",
+                    "like": 1
+                }
+            ],
+            "review": 4.7
+        },
+        {
+            "id": 5,
+            "title": "Lagoon View Resort",
+            "price": 220,
+            "location": "Siargao, Philippines",
+            "bathrooms": 2,
+            "bedrooms": 3,
+            "img": [
+                "https://www.lagoonviewresort.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/55555544.jpg?k=xyz0987abcd1234",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/33322211.jpg?k=mlkjh9nb098",
+                "https://images.trvl-media.com/lodging/1000000/50000/45000/44999/6d7e8a9c.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 4,
+            "near": "Near the Lagoon",
+            "description": "A tropical resort with beautiful views of the lagoon, perfect for a peaceful stay and water activities. Experience island life at its best.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 9.2
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 8.4
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 9.0
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 8.6
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.2
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.0
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 9.6
+                }
+            ],
+            "comments": [
+                {
+                    "name": "Olivia",
+                    "country": "🇩🇪 Germany",
+                    "content": "The lagoon view is mesmerizing, loved the kayaking experience!",
+                    "like": 4
+                }
+            ],
+            "review": 4.8
+        },
+        {
+            "id": 6,
+            "title": "The Heritage Inn",
+            "price": 150,
+            "location": "Vigan, Philippines",
+            "bathrooms": 1,
+            "bedrooms": 2,
+            "img": [
+                "https://www.heritageinn.com/images/1.jpg",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/33399977.jpg?k=lmno1234pqrs5678",
+                "https://cf.bstatic.com/xdata/images/hotel/max1024x768/11122233.jpg?k=xyz987654321",
+                "https://images.trvl-media.com/lodging/1000000/60000/54000/53999/c0b9a9d6.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+            ],
+            "duration": 3,
+            "near": "Near Historical Sites",
+            "description": "A charming inn nestled in the heart of the historic city of Vigan, offering a traditional experience with modern comforts.",
+            "categories": [
+                {
+                    "name": "Staff",
+                    "rating": 8.3
+                },
+                {
+                    "name": "Facilities",
+                    "rating": 7.8
+                },
+                {
+                    "name": "Cleanliness",
+                    "rating": 8.6
+                },
+                {
+                    "name": "Comfort",
+                    "rating": 8.1
+                },
+                {
+                    "name": "Value for money",
+                    "rating": 8.4
+                },
+                {
+                    "name": "Location",
+                    "rating": 9.3
+                },
+                {
+                    "name": "Free WIFI",
+                    "rating": 9.0
+                }
+            ],
+            "comments": [
+                {
+                    "name": "Liam",
+                    "country": "🇳🇱 Netherlands",
+                    "content": "Great location to explore the heritage of Vigan, highly recommend!",
+                    "like": 1
+                }
+            ],
+            "review": 4.6
+        }
+    ]
+}

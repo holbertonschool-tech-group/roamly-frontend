@@ -21,20 +21,48 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigation, Pagination } from "swiper/modules";
 import AskQuote from "../../components/AskQuote";
 import OrderModal from "../../components/OrderModal";
+import axios from "axios";
 
 function Detail() {
     const { id } = useParams();
     const [open, setOpen] = useState(false);
     // <p>ID: {id}</p>
-    const data = tours[0];
     const handleClose = () => {
         setOpen(false);
-
     }
+    const [data, setdata] = useState({});
+
+
+
+    useEffect(() => {
+        const fetchHotel = async () => {
+            const source = axios.CancelToken.source(); // Create a cancel token
+
+            try {
+                const response = await axios.get(import.meta.env.VITE_APP_BASE_URL + "hotels");
+                setdata(response.data.filter(elem => elem.id == id)[0]);
+                console.log(data)
+            } catch (error) {
+                if (axios.isCancel(error)) {
+                    console.log("Request canceled:", error.message);
+                } else {
+                    console.error("Error fetching hotels:", error);
+                }
+            }
+
+            return () => source.cancel("Fetch canceled due to component unmounting"); // Cleanup
+        };
+
+        fetchHotel();
+    }, []);
+
+
+
+
     return (
         <>
             {
@@ -65,7 +93,7 @@ function Detail() {
                         },
                     }}
                 >
-                    {data.imgs.map((img) => {
+                    {data.img?.map((img) => {
                         return (
                             <SwiperSlide key={uuidv4()}>
                                 <img src={img} alt="" />
@@ -79,7 +107,7 @@ function Detail() {
                         <div className="icons">
                             <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
                         </div>
-                        (5.0)
+                        ({data?.review})
                     </div>
                 </div>
                 <div className="location">
@@ -87,17 +115,7 @@ function Detail() {
                 </div>
                 <div className="info">
                     <div className="description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dolore
-                        porro pariatur perspiciatis ullam animi, illo sed fugiat impedit,
-                        minima nulla? Optio pariatur perspiciatis iure quaerat omnis tempore
-                        itaque possimus expedita explicabo blanditiis molestiae tempora ea,
-                        est error natus voluptatibus modi cupiditate accusantium fuga aut
-                        suscipit saepe provident ! Similique optio autem quidem cupiditate
-                        iure obcaecati soluta voluptatem beatae quo quae iusto nisi deleniti,
-                        at ipsam, facere impedit eos nobis accusamus vel fugiat maiores qui.
-                        Quae quidem exercitationem odit maiores quam numquam minus totam
-                        delectus, nostrum odio voluptatibus, laudantium neque in ullam atque
-                        non ex explicabo reprehenderit, quasi voluptatum expedita. Magnam.
+                        {data?.description}
                     </div>
                     <div className="book">
                         <div className="texts">
@@ -127,17 +145,18 @@ function Detail() {
                 <div className="categories">
                     <h3>Categories:</h3>
                     <ul>
-                        {categories.map((category) => {
+
+                        {data?.categories?.map((category) => {
                             return (
                                 <li key={uuidv4()}>
                                     <div className="head">
-                                        <p> {category.title}</p> <p> {category.points / 10}</p>
+                                        <p> {category.name}</p> <p> {category.rating}</p>
                                     </div>
                                     <div className="line">
                                         <div
                                             className="current"
                                             style={{
-                                                width: `${category.points}%`
+                                                width: `${category.rating * 10}%`
                                             }}
                                         />
                                     </div>
@@ -147,7 +166,13 @@ function Detail() {
                     </ul>
                 </div>
                 <div className="feedbacks">
-                    <h3>Guests who stayed here loved:</h3>
+                    <div className="heading">
+                        <h3>Guests who stayed here loved:</h3>
+                        <button>
+                            Add a review
+                        </button>
+                    </div>
+
                     <Swiper
                         pagination={{
                             clickable: true
@@ -171,7 +196,7 @@ function Detail() {
                             },
                         }}
                     >
-                        {data.reviews.map((review) => {
+                        {data?.comments?.map((review) => {
                             return (
                                 <SwiperSlide key={uuidv4()}>
                                     <div className="card">

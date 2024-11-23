@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1,
+        "title": "Manila Hotel",
+        "price": 200,
+        "location": "Banaue, Ifugao, Philippines",
+        "bathrooms": 2,
+        "bedrooms": 3,
+        "img": [
+            "hotel1.jpg"
+        ],
+        "duration": 8,
+        "near": "Near Mountain",
+        "description": "A charming hotel located in the scenic Banaue, Ifugao, offering a peaceful escape near the mountains. The perfect place to unwind and enjoy the natural beauty of the Philippines.",
+        "categories": [
+            {
+                "name": "Staff",
+                "rating": 8.5
+            },
+            {
+                "name": "Facilities",
+                "rating": 8
+            },
+            {
+                "name": "Cleanliness",
+                "rating": 8.4
+            },
+            {
+                "name": "Comfort",
+                "rating": 8.4
+            },
+            {
+                "name": "Value for money",
+                "rating": 7.7
+            },
+            {
+                "name": "Location",
+                "rating": 9.1
+            },
+            {
+                "name": "Free WIFI",
+                "rating": 9.5
+            }
+        ],
+        "comments": [
+            {
+                "name": "Natalie",
+                "country": "🇬🇧 United Kingdom",
+                "content": "Excellent breakfast, liked sitting looking at the garden",
+                "like": 0
+            }
+        ],
+        "review": 5
+    },
+    {
+        "id": 2,
+        "title": "Cape Town Lodge",
+        "price": 250,
+        "location": "Cape Town, South Africa",
+        "bathrooms": 1,
+        "bedrooms": 2,
+        "img": [
+            "hotel2.jpg"
+        ],
+        "duration": 5,
+        "near": "Near Beach",
+        "description": "Located in the vibrant city of Cape Town, this lodge offers a relaxing stay with stunning beach views and excellent service. It's a perfect blend of comfort and convenience.",
+        "categories": [
+            {
+                "name": "Staff",
+                "rating": 9
+            },
+            {
+                "name": "Facilities",
+                "rating": 8.5
+            },
+            {
+                "name": "Cleanliness",
+                "rating": 9
+            },
+            {
+                "name": "Comfort",
+                "rating": 8.8
+            },
+            {
+                "name": "Value for money",
+                "rating": 7.9
+            },
+            {
+                "name": "Location",
+                "rating": 9.4
+            },
+            {
+                "name": "Free WIFI",
+                "rating": 9.3
+            }
+        ],
+        "comments": [
+            {
+                "name": "Sophia",
+                "country": "🇦🇺 Australia",
+                "content": "Beautiful views and great service.",
+                "like": 0,
+                "review": 4
+            }
+        ],
+        "review": 3
+    }
+]

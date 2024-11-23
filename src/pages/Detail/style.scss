@@ -188,6 +188,18 @@
             margin-bottom: 20px;
         }
 
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            button {
+                background-color: transparent;
+                color: var(--brand-color);
+                font-size: 16px;
+            }
+        }
+
         .reviews {
             width: 100%;
 

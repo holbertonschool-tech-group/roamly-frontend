@@ -14,6 +14,7 @@ import ScrollToTop from './utils/ScrollToTop.jsx'
 import Detail from './pages/Detail/index.jsx'
 import { Provider } from 'react-redux'
 import { store } from './redux/store.js'
+import Favorites from './pages/Favorites/index.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
@@ -28,6 +29,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="hotel" element={<Hotel />} />
             <Route path="blog" element={<Blog />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="favorites" element={<Favorites />} />
             <Route path="details/:id" element={<Detail />} />
 
 

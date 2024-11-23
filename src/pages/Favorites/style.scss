@@ -1,0 +1,36 @@
+.Favorites {
+    .grid {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 3em 0;
+    }
+
+    .btns {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 7rem;
+
+        button {
+            color: #000000;
+            text-align: center;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            border: 1px solid #e6e6e6;
+            background-color: transparent;
+        }
+
+        .active {
+            background: #33313b;
+            color: #fff;
+            border: 1px solid transparent;
+        }
+    }
+}

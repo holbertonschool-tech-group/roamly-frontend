@@ -12,11 +12,17 @@ export const navs = [
     }, {
         title: 'Hotel',
         url: '/hotel'
-    }, {
-        title: 'Blogs',
-        url: '/blog'
-    }, {
+    },
+    //  {
+    //     title: 'Blogs',
+    //     url: '/blog'
+    // }, 
+    {
+        title: 'Favorites',
+        url: '/favorites'
+    },
+    {
         title: 'Contact',
         url: '/contact'
-    }
+    },
 ]

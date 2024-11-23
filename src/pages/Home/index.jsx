@@ -21,7 +21,7 @@ function Home() {
       <VideoOverlay />
       <Memorable />
       <Feedback />
-      <Blog />
+      {/* <Blog /> */}
       <AskQuote />
     </div>
   );

@@ -15,9 +15,9 @@ function Table({ active }) {
     const [datas, setdatas] = useState([]);
     const [rows, setrows] = useState([]);
 
-    const bookingRows = ['name', 'email', 'destination', 'checkInDate', 'checkOutDate', 'message'];
-    const hotelRows = ['title', 'price', 'location', 'bathrooms', 'bedrooms', 'review'];  // Updated to match hotel data structure
-    const destinationRows = ['title', 'price', 'location', 'bathrooms', 'bedrooms', 'review'];  // Modify based on destination data structure
+    const bookingRows = ['name', 'email', 'destination', 'checkInDate', 'checkOutDate', 'message',];
+    const hotelRows = ['title', 'price', 'location', 'bathrooms', 'bedrooms', 'review',];  // Updated to match hotel data structure
+    const destinationRows = ['title', 'price', 'location', 'bathrooms', 'bedrooms', 'review',];  // Modify based on destination data structure
 
     useEffect(() => {
         if (active === 'bookings') {
@@ -51,6 +51,15 @@ function Table({ active }) {
                             </a>
                         </div>
                     ))}
+                    <div className="header__item" key={uuidv4()}>
+                        <a
+                            id="draws"
+                            className="filter__link filter__link--number"
+                            href="#"
+                        >
+                            Delete
+                        </a>
+                    </div>
                 </div>
                 <div className="table-content">
                     {datas?.map((elem, index) => (

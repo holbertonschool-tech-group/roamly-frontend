@@ -1,3 +1,5 @@
+import { FaHeart } from "react-icons/fa6"; import { FaRegHeart } from "react-icons/fa";
+
 import { IoCar } from "react-icons/io5";
 
 import { FaBath, FaStar } from "react-icons/fa";
@@ -27,6 +29,7 @@ import AskQuote from "../../components/AskQuote";
 import OrderModal from "../../components/OrderModal";
 import axios from "axios";
 import CommentModal from "../../components/CommentModal";
+import Swal from "sweetalert2";
 
 function Detail() {
     const { id } = useParams();
@@ -42,7 +45,7 @@ function Detail() {
     }
     const [data, setdata] = useState({});
 
-
+    const [inFavorites, setinFavorites] = useState(false);
 
     useEffect(() => {
         const fetchHotel = async () => {
@@ -66,9 +69,39 @@ function Detail() {
         fetchHotel();
     }, []);
 
+    const favs = JSON.parse(localStorage.getItem('favorites')) || []
+    useEffect(() => {
+        setinFavorites(favs.find(elem => elem == id))
 
+    }, [id]);
 
+    function handleFav() {
+        if (inFavorites) {
+            const removedFavs = favs.filter(elem => elem != id)
+            localStorage.setItem('favorites', JSON.stringify(removedFavs))
+            setinFavorites(false)
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Removed from favorites",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+        else {
+            const addedFavs = [...favs, id]
+            localStorage.setItem('favorites', JSON.stringify(addedFavs))
+            setinFavorites(true)
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Added to favorites",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
 
+    }
     return (
         <>{
             data &&
@@ -132,7 +165,17 @@ function Detail() {
                         </div>
                         <div className="book">
                             <div className="texts">
-                                <h2>Reserve</h2>
+                                <div className="head">
+                                    <h2>Reserve</h2>
+                                    <div className="like" onClick={() => {
+                                        handleFav()
+                                    }}>
+                                        {
+                                            inFavorites ? <FaHeart color="red" /> : <FaRegHeart />
+                                        }
+
+                                    </div>
+                                </div>
                                 <ul>
                                     <li>
                                         <IoIosBed size={20} /> {data.bathrooms}{" "}

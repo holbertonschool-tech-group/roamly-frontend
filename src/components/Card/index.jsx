@@ -8,34 +8,34 @@ function Card({ data, type }) {
     const navigate = useNavigate();
     return (
         <div className="card" onClick={() => {
-            navigate(`/details/${data.id}?category=${type}`)
+            navigate(`/details/${data?.id}?category=${type}`)
         }}>
             <div
                 className="img"
                 style={{
-                    backgroundImage: `url(${data.img})`
+                    backgroundImage: `url(${data?.img[0]})`
                 }}
             >
                 <div className="price">
-                    $ {data.price}
+                    $ {data?.price}
                     /person
                 </div>
             </div>
             <div className="text">
-                <div className="days"> {data.duration} days tour</div>
-                <h3> {data.title}</h3>
+                <div className="days"> {data?.duration} days tour</div>
+                <h3> {data?.title}</h3>
                 <div className="location">
-                    <FaLocationDot /> {data.location}
+                    <FaLocationDot /> {data?.location}
                 </div>
                 <div className="details">
                     <div className="detail">
-                        <FaBath /> {data.bathrooms}
+                        <FaBath /> {data?.bathrooms}
                     </div>
                     <div className="detail">
-                        <IoIosBed /> {data.bedrooms}
+                        <IoIosBed /> {data?.bedrooms}
                     </div>
                     <div className="detail">
-                        <FaCar /> {data.near}
+                        <FaCar /> {data?.near}
                     </div>
                 </div>
             </div>

@@ -23,16 +23,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Navigation, Pagination } from "swiper/modules";
 import AskQuote from "../../components/AskQuote";
 import CommentModal from "../../components/CommentModal";
 import OrderModal from "../../components/OrderModal";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchHotels } from "../../redux/slice/hotelSlice";
 import { fetchDestinations } from "../../redux/slice/destinationSlice";
+import { fetchHotels } from "../../redux/slice/hotelSlice";
 
 function Detail() {
     const { id } = useParams();
@@ -72,11 +71,11 @@ function Detail() {
     useEffect(() => {
         setinFavorites(favs.find(elem => elem == id))
 
-    }, [id]);
+    }, [favs, id]);
 
     function handleFav() {
         if (inFavorites) {
-            const removedFavs = favs.filter(elem => elem != id)
+            const removedFavs = favs.filter(elem => elem.id != id)
             localStorage.setItem('favorites', JSON.stringify(removedFavs))
             setinFavorites(false)
             Swal.fire({
@@ -88,7 +87,11 @@ function Detail() {
             });
         }
         else {
-            const addedFavs = [...favs, id]
+            const elem = {
+                category: category,
+                id: id
+            }
+            const addedFavs = [...favs, elem]
             localStorage.setItem('favorites', JSON.stringify(addedFavs))
             setinFavorites(true)
             Swal.fire({

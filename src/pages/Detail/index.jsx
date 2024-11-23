@@ -26,13 +26,19 @@ import { Navigation, Pagination } from "swiper/modules";
 import AskQuote from "../../components/AskQuote";
 import OrderModal from "../../components/OrderModal";
 import axios from "axios";
+import CommentModal from "../../components/CommentModal";
 
 function Detail() {
     const { id } = useParams();
-    const [open, setOpen] = useState(false);
+    const [openOrder, setOpenOrder] = useState(false);
+    const [openComment, setOpenComment] = useState(false);
+
     // <p>ID: {id}</p>
     const handleClose = () => {
-        setOpen(false);
+        setOpenOrder(false);
+    }
+    const handleCloseOrder = () => {
+        setOpenComment(false);
     }
     const [data, setdata] = useState({});
 
@@ -69,10 +75,12 @@ function Detail() {
             <>
                 <>
                     {
-                        open && <OrderModal handleClose={handleClose} data={data} />
+                        openOrder && <OrderModal handleClose={handleClose} data={data} />
                     }
                 </>
-
+                {
+                    openComment && <CommentModal handleClose={handleCloseOrder} data={data} />
+                }
                 <div className="detailPage container">
                     <Swiper
 
@@ -143,7 +151,7 @@ function Detail() {
                                 </div>
                             </div>
                             <button onClick={() => {
-                                setOpen(true)
+                                setOpenOrder(true)
                             }}>Order</button>
                         </div>
                     </div>
@@ -173,7 +181,9 @@ function Detail() {
                     <div className="feedbacks">
                         <div className="heading">
                             <h3>Guests who stayed here loved:</h3>
-                            <button>
+                            <button onClick={() => {
+                                setOpenComment(true)
+                            }}>
                                 Add a review
                             </button>
                         </div>

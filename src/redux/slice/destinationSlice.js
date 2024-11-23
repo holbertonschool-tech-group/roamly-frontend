@@ -8,7 +8,7 @@ export const fetchDestinations = createAsyncThunk(
     const source = axios.CancelToken.source(); // Create a cancel token
     try {
       const response = await axios.get(
-        import.meta.env.VITE_APP_BASE_URL + "hotels",
+        import.meta.env.VITE_APP_BASE_URL + "destinations",
         {
           cancelToken: source.token
         }
@@ -54,7 +54,7 @@ export const hotelSlice = createSlice({
       })
       .addCase(fetchDestinations.fulfilled, (state, action) => {
         state.loading = false;
-        state.destinations = action.payload[0].destinations;
+        state.destinations = action.payload;
       })
       .addCase(fetchDestinations.rejected, (state, action) => {
         state.loading = false;

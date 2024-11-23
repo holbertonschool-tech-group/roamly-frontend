@@ -41,13 +41,13 @@ function OrderModal({ handleClose, data }) {
     const destination = data.title
     const handleOrder = () => {
         const order = {
-            data,
-            name,
-            email,
-            destination,
-            checkInDate,
-            checkOutDate,
-            message
+            name: name,
+            email: email,
+            destination: destination,
+            checkInDate: checkInDate,
+            checkOutDate: checkOutDate,
+            message: message,
+            status: 'created'
         }
         axios.post(import.meta.env.VITE_APP_BASE_URL + 'orders', order).then(() => {
             Swal.fire({

@@ -1,9 +1,19 @@
 import { v4 as uuidv4 } from 'uuid';
 import Card from "../Card";
-import { tours } from "./data";
 import "./style.scss";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDestinations } from '../../redux/slice/destinationSlice';
+import { useEffect } from 'react';
 
 function Tours() {
+    const tours = useSelector(state => state.destination.destinations)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchDestinations());
+
+    }, [dispatch]);
+
+
     return (
         <div className="Tours container">
             <div className="head">

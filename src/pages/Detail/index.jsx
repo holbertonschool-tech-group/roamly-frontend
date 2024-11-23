@@ -60,8 +60,8 @@ function Detail() {
     const tours = useSelector(state => state.destination.destinations)
     const data =
         category == 'hotel' ?
-            hotels.filter(elem => elem.id == id)[0] :
-            tours.filter(elem => elem.id == id)[0]
+            hotels.filter(elem => elem._id == id)[0] :
+            tours.filter(elem => elem._id == id)[0]
     useEffect(() => {
         dispatch(fetchHotels())
         dispatch(fetchDestinations())

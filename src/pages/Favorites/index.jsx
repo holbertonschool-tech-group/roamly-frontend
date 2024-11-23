@@ -40,7 +40,7 @@ function Favorites() {
           {
             favs.map(elem => {
               if (elem.category === 'hotel') {
-                const hotelData = hotels.filter(hotel => hotel.id == elem.id);
+                const hotelData = hotels.filter(hotel => hotel._id == elem.id);
                 return <Card key={elem.id} data={hotelData[0]} type='hotel' />;
               }
             })
@@ -54,7 +54,7 @@ function Favorites() {
           {
             favs.map(elem => {
               if (elem.category === 'destination') {
-                const tourData = tours.filter(hotel => hotel.id == elem.id);
+                const tourData = tours.filter(hotel => hotel._id == elem.id);
                 return <Card key={elem.id} data={tourData[0]} type='destination' />;
               }
             })

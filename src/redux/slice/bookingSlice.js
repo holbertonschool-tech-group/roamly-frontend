@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Define the async thunk for fetching destinations
-export const fetchDestinations = createAsyncThunk(
-  "hotel/fetchDestinations",
+// Define the async thunk for fetching bookings
+export const fetchBookings = createAsyncThunk(
+  "hotel/fetchBookings",
   async (_, { rejectWithValue }) => {
     const source = axios.CancelToken.source(); // Create a cancel token
     try {
       const response = await axios.get(
-        import.meta.env.VITE_APP_BASE_URL + "hotels",
+        import.meta.env.VITE_APP_BASE_URL + "orders",
         {
           cancelToken: source.token
         }
@@ -18,16 +18,16 @@ export const fetchDestinations = createAsyncThunk(
       if (axios.isCancel(error)) {
         console.log("Request canceled:", error.message);
       } else {
-        console.error("Error fetching destinations:", error);
-        return rejectWithValue("Error fetching destinations");
+        console.error("Error fetching bookings:", error);
+        return rejectWithValue("Error fetching bookings");
       }
     }
   }
 );
 
 const initialState = {
-  destinations: [],
-  backdestinations: [],
+  bookings: [],
+  backbookings: [],
   loading: false,
   error: null
 };
@@ -37,28 +37,28 @@ export const hotelSlice = createSlice({
   initialState,
   reducers: {
     filterDestinationByTitle: (state, action) => {
-      state.destinations = state.destinations.filter(
+      state.bookings = state.bookings.filter(
         (elem) => elem.title === action.payload
       );
     },
     filterDestinationByPrice: (state, action) => {
-      state.destinations = state.destinations.filter(
+      state.bookings = state.bookings.filter(
         (elem) => elem.price <= action.payload
       );
     }
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchDestinations.pending, (state) => {
+      .addCase(fetchBookings.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchDestinations.fulfilled, (state, action) => {
+      .addCase(fetchBookings.fulfilled, (state, action) => {
         state.loading = false;
-        state.destinations = action.payload[0].destinations;
+        state.bookings = action.payload;
       })
-      .addCase(fetchDestinations.rejected, (state, action) => {
+      .addCase(fetchBookings.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload || "Failed to fetch destinations";
+        state.error = action.payload || "Failed to fetch bookings";
       });
   }
 });

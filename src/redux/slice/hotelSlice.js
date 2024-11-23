@@ -42,7 +42,6 @@ export const hotelSlice = createSlice({
       })
       .addCase(fetchHotels.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload);
         state.hotels = action.payload[0].hotels;
       })
       .addCase(fetchHotels.rejected, (state, action) => {

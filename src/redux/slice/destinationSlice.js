@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // Define the async thunk for fetching destinations
@@ -27,6 +27,7 @@ export const fetchDestinations = createAsyncThunk(
 
 const initialState = {
   destinations: [],
+  backdestinations: [],
   loading: false,
   error: null
 };
@@ -34,7 +35,18 @@ const initialState = {
 export const hotelSlice = createSlice({
   name: "hotel",
   initialState,
-  reducers: {},
+  reducers: {
+    filterDestinationByTitle: (state, action) => {
+      state.destinations = state.destinations.filter(
+        (elem) => elem.title === action.payload
+      );
+    },
+    filterDestinationByPrice: (state, action) => {
+      state.destinations = state.destinations.filter(
+        (elem) => elem.price <= action.payload
+      );
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchDestinations.pending, (state) => {
@@ -53,4 +65,6 @@ export const hotelSlice = createSlice({
 });
 
 // Action creators and reducer export
+export const { filterDestinationByTitle, filterDestinationByPrice } =
+  hotelSlice.actions;
 export default hotelSlice.reducer;

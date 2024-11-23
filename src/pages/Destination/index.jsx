@@ -1,35 +1,42 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Hero from "../../components/Hero";
-import ReservationBar from "../../components/ReservationBar";
-import Card from "../../components/Card";
-import './style.scss';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import AskQuote from "../../components/AskQuote";
-import { useSearchParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchDestinations } from "../../redux/slice/destinationSlice";
+import Card from "../../components/Card";
+import Hero from "../../components/Hero";
+import ReservationBar from "../../components/ReservationBar";
+import { fetchDestinations, filterDestinationByPrice, filterDestinationByTitle } from "../../redux/slice/destinationSlice";
+import './style.scss';
 
 function Destination() {
   const buttons = ['<', 1, 2, 3, 4, 5, 6, '>'];
   const [selectedBtn, setselectedBtn] = useState(1);
   const [searchParams] = useSearchParams();
-
+  const destination = searchParams.get("destination") || "";
+  const priceLimit = searchParams.get("priceLimit") || "";
   const dispatch = useDispatch()
   const tours = useSelector(state => state.destination.destinations)
+
+
   useEffect(() => {
-    dispatch(fetchDestinations())
-  }, []);
+    dispatch(fetchDestinations());
+    if (destination) {
+      dispatch(filterDestinationByTitle(destination));
+    }
+    if (priceLimit) {
+      dispatch(filterDestinationByPrice(priceLimit));
+    }
+  }, [destination, dispatch, priceLimit]);
+
+
 
 
   function handleSelect(number) {
     !isNaN(number) && setselectedBtn(number);
   }
 
-  const destination = searchParams.get("destination") || "";
-  const checkInDate = searchParams.get("checkInDate") || "";
-  const checkOutDate = searchParams.get("checkOutDate") || "";
-  const priceLimit = searchParams.get("priceLimit") || "";
+
 
   return (
     <>

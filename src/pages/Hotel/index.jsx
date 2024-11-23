@@ -17,14 +17,25 @@ function Hotel() {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    async function fetchHotels() {
+    const fetchHotels = async () => {
+      const source = axios.CancelToken.source(); // Create a cancel token
+
       try {
-        const response = await axios.get("http://localhost:5000/hotels");
+        const response = await axios.get(import.meta.env.VITE_APP_BASE_URL + "hotels");
+        // const response = await axios.get('/api/hotels');
+        console.log(response)
         setHotels(response.data);
       } catch (error) {
-        console.error("Error fetching hotels:", error);
+        if (axios.isCancel(error)) {
+          console.log("Request canceled:", error.message);
+        } else {
+          console.error("Error fetching hotels:", error);
+        }
       }
-    }
+
+      return () => source.cancel("Fetch canceled due to component unmounting"); // Cleanup
+    };
+
     fetchHotels();
   }, []);
 
@@ -68,11 +79,11 @@ function Hotel() {
           </div>
         )}
         <div className="grid">
-          {hotels.map((hotel) => {
+          {hotels?.map((hotel) => {
             return (
               <div key={uuidv4()}>
                 <Card data={hotel} />
-                <button onClick={() => handleReservation(1, hotel.id)}>Reserve</button>
+                {/* <button onClick={() => handleReservation(1, hotel.id)}>Reserve</button> */}
               </div>
             );
           })}

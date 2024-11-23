@@ -62,16 +62,7 @@ function OrderModal({ handleClose, data }) {
             className="OrderModal"
         >
 
-            <DialogTitle
-                sx={{
-                    m: 0,
-                    p: 2
-                }}
-                id="customized-dialog-title"
-            >
 
-                Complete Order
-            </DialogTitle>
             <IconButton
                 aria-label="close"
                 onClick={handleClose}

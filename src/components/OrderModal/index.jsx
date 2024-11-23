@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import { MdEmail } from "react-icons/md";
 
@@ -17,6 +16,7 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 
 
 import { Typography } from "@mui/material";
+import axios from "axios";
 import { FaUserAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import "./style.scss";
@@ -39,10 +39,9 @@ function OrderModal({ handleClose, data }) {
     const [message, setmessage] = useState('');
 
     const destination = data.title
-    const id = data.id
     const handleOrder = () => {
-        const datas = {
-            id,
+        const order = {
+            data,
             name,
             email,
             destination,
@@ -50,8 +49,17 @@ function OrderModal({ handleClose, data }) {
             checkOutDate,
             message
         }
-
-        console.log(datas);
+        axios.post(import.meta.env.VITE_APP_BASE_URL + 'orders', order).then(() => {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Thank You for Booking at Pacific",
+                showConfirmButton: true,
+                confirmButtonText: "Continue",
+                // timer: 1500
+                text: "Your reservation has been successfully completed. Your request will be reviewed, and you will be contacted shortly to finalize your booking and assist with any additional details."
+            });
+        })
     };
 
     return (
@@ -163,15 +171,7 @@ function OrderModal({ handleClose, data }) {
                     onClick={() => {
                         handleOrder()
                         handleClose();
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: "Thank You for Booking at Pacific",
-                            showConfirmButton: true,
-                            confirmButtonText: "Continue",
-                            // timer: 1500
-                            text: "Your reservation has been successfully completed. Your request will be reviewed, and you will be contacted shortly to finalize your booking and assist with any additional details."
-                        });
+
                     }}
                 >
 

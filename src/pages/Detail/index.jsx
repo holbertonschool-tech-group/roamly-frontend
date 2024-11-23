@@ -64,122 +64,24 @@ function Detail() {
 
 
     return (
-        <>
-            {
-                open && <OrderModal handleClose={handleClose} data={data} />
-            }
-            <div className="detailPage container">
-                <Swiper
+        <>{
+            data &&
+            <>
+                <>
+                    {
+                        open && <OrderModal handleClose={handleClose} data={data} />
+                    }
+                </>
 
-                    pagination={{
-                        clickable: true
-                    }}
-                    navigation={true}
-                    modules={[Pagination, Navigation]}
-                    className="imgs"
-                    loop={true}
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                        },
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                    }}
-                >
-                    {data.img?.map((img) => {
-                        return (
-                            <SwiperSlide key={uuidv4()}>
-                                <img src={img} alt="" />
-                            </SwiperSlide>
-                        );
-                    })}
-                </Swiper>
-                <div className="head">
-                    <h1> {data.title}</h1>
-                    <div className="stars">
-                        <div className="icons">
-                            <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
-                        </div>
-                        ({data?.review})
-                    </div>
-                </div>
-                <div className="location">
-                    <FaLocationDot /> {data.location}
-                </div>
-                <div className="info">
-                    <div className="description">
-                        {data?.description}
-                    </div>
-                    <div className="book">
-                        <div className="texts">
-                            <h2>Reserve</h2>
-                            <ul>
-                                <li>
-                                    <IoIosBed size={20} /> {data.bathrooms}{" "}
-                                    bathrooms
-                                </li>
-                                <li>
-                                    <FaBath size={20} /> {data.bedrooms}{" "}
-                                    bedrooms
-                                </li>
-                                <li>
-                                    <IoCar size={20} /> Free Parking{" "}
-                                </li>
-                            </ul>
-                            <div className="price">
-                                <p>total</p> <h4>$ {data.price}</h4>
-                            </div>
-                        </div>
-                        <button onClick={() => {
-                            setOpen(true)
-                        }}>Order</button>
-                    </div>
-                </div>
-                <div className="categories">
-                    <h3>Categories:</h3>
-                    <ul>
-
-                        {data?.categories?.map((category) => {
-                            return (
-                                <li key={uuidv4()}>
-                                    <div className="head">
-                                        <p> {category.name}</p> <p> {category.rating}</p>
-                                    </div>
-                                    <div className="line">
-                                        <div
-                                            className="current"
-                                            style={{
-                                                width: `${category.rating * 10}%`
-                                            }}
-                                        />
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-                <div className="feedbacks">
-                    <div className="heading">
-                        <h3>Guests who stayed here loved:</h3>
-                        <button>
-                            Add a review
-                        </button>
-                    </div>
-
+                <div className="detailPage container">
                     <Swiper
+
                         pagination={{
                             clickable: true
                         }}
                         navigation={true}
                         modules={[Pagination, Navigation]}
-                        className="reviews"
+                        className="imgs"
                         loop={true}
                         breakpoints={{
                             640: {
@@ -196,31 +98,137 @@ function Detail() {
                             },
                         }}
                     >
-                        {data?.comments?.map((review) => {
+                        {data.img?.map((img) => {
                             return (
                                 <SwiperSlide key={uuidv4()}>
-                                    <div className="card">
-                                        <div className="head">
-                                            <div src="" alt="" className="img">
-                                                {review.name.charAt(0)}
-                                            </div>
-                                            <div className="about">
-                                                <div className="name"> {review.name}</div>
-                                                <div className="country"> {review.country}</div>
-                                            </div>
-                                        </div>
-                                        <div className="content">
-                                            &apos;{review.content}
-                                            &apos;
-                                        </div>
-                                    </div>
+                                    <img src={img} alt="" />
                                 </SwiperSlide>
                             );
                         })}
                     </Swiper>
+                    <div className="head">
+                        <h1> {data.title}</h1>
+                        <div className="stars">
+                            <div className="icons">
+                                <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
+                            </div>
+                            ({data?.review})
+                        </div>
+                    </div>
+                    <div className="location">
+                        <FaLocationDot /> {data.location}
+                    </div>
+                    <div className="info">
+                        <div className="description">
+                            {data?.description}
+                        </div>
+                        <div className="book">
+                            <div className="texts">
+                                <h2>Reserve</h2>
+                                <ul>
+                                    <li>
+                                        <IoIosBed size={20} /> {data.bathrooms}{" "}
+                                        bathrooms
+                                    </li>
+                                    <li>
+                                        <FaBath size={20} /> {data.bedrooms}{" "}
+                                        bedrooms
+                                    </li>
+                                    <li>
+                                        <IoCar size={20} /> Free Parking{" "}
+                                    </li>
+                                </ul>
+                                <div className="price">
+                                    <p>total</p> <h4>$ {data.price}</h4>
+                                </div>
+                            </div>
+                            <button onClick={() => {
+                                setOpen(true)
+                            }}>Order</button>
+                        </div>
+                    </div>
+                    <div className="categories">
+                        <h3>Categories:</h3>
+                        <ul>
+
+                            {data?.categories?.map((category) => {
+                                return (
+                                    <li key={uuidv4()}>
+                                        <div className="head">
+                                            <p> {category.name}</p> <p> {category.rating}</p>
+                                        </div>
+                                        <div className="line">
+                                            <div
+                                                className="current"
+                                                style={{
+                                                    width: `${category.rating * 10}%`
+                                                }}
+                                            />
+                                        </div>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                    <div className="feedbacks">
+                        <div className="heading">
+                            <h3>Guests who stayed here loved:</h3>
+                            <button>
+                                Add a review
+                            </button>
+                        </div>
+
+                        <Swiper
+                            pagination={{
+                                clickable: true
+                            }}
+                            navigation={true}
+                            modules={[Pagination, Navigation]}
+                            className="reviews"
+                            loop={true}
+                            breakpoints={{
+                                640: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 10,
+                                },
+                                768: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 20,
+                                },
+                                1024: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 30,
+                                },
+                            }}
+                        >
+                            {data?.comments?.map((review) => {
+                                return (
+                                    <SwiperSlide key={uuidv4()}>
+                                        <div className="card">
+                                            <div className="head">
+                                                <div src="" alt="" className="img">
+                                                    {review.name.charAt(0)}
+                                                </div>
+                                                <div className="about">
+                                                    <div className="name"> {review.name}</div>
+                                                    <div className="country"> {review.country}</div>
+                                                </div>
+                                            </div>
+                                            <div className="content">
+                                                &apos;{review.content}
+                                                &apos;
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                );
+                            })}
+                        </Swiper>
+                    </div>
                 </div>
-            </div>
-            <AskQuote />
+                <AskQuote />
+
+            </>
+        }
         </>
     );
 }

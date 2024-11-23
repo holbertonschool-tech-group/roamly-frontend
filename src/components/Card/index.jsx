@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types'
-import './style.scss'
-import { FaBath, FaLocationDot, FaUmbrellaBeach } from 'react-icons/fa6'
-import { IoIosBed } from 'react-icons/io'
+import PropTypes from 'prop-types';
+import { FaCar } from "react-icons/fa";
+import { FaBath, FaLocationDot } from 'react-icons/fa6';
+import { IoIosBed } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
+import './style.scss';
 function Card({ data }) {
     const navigate = useNavigate();
     return (
@@ -34,7 +35,7 @@ function Card({ data }) {
                         <IoIosBed /> {data.bedrooms}
                     </div>
                     <div className="detail">
-                        <FaUmbrellaBeach /> {data.near}
+                        <FaCar /> {data.near}
                     </div>
                 </div>
             </div>

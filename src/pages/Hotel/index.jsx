@@ -8,35 +8,17 @@ import './style.scss';
 import AskQuote from "../../components/AskQuote";
 import { useSearchParams } from "react-router-dom";
 import { formatDate } from "../../utils/functions";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHotels } from "../../redux/slice/hotelSlice";
 
 function Hotel() {
   const buttons = ['<', 1, 2, 3, 4, 5, 6, '>'];
   const [selectedBtn, setselectedBtn] = useState(1);
-  const [hotels, setHotels] = useState([]);
   const [searchParams] = useSearchParams();
-
+  const dispatch = useDispatch()
+  const hotels = useSelector(state => state.hotel.hotels)
   useEffect(() => {
-    const fetchHotels = async () => {
-      const source = axios.CancelToken.source(); // Create a cancel token
-
-      try {
-        const response = await axios.get(import.meta.env.VITE_APP_BASE_URL + "hotels");
-        // const response = await axios.get('/api/hotels');
-        console.log(response)
-        setHotels(response.data);
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log("Request canceled:", error.message);
-        } else {
-          console.error("Error fetching hotels:", error);
-        }
-      }
-
-      return () => source.cancel("Fetch canceled due to component unmounting"); // Cleanup
-    };
-
-    fetchHotels();
+    dispatch(fetchHotels())
   }, []);
 
   function handleSelect(number) {

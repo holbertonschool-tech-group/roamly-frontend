@@ -1,4 +1,5 @@
-import { FaHeart } from "react-icons/fa6"; import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
 
 import { IoCar } from "react-icons/io5";
 
@@ -8,7 +9,6 @@ import { FaLocationDot } from "react-icons/fa6";
 
 import { useParams } from "react-router-dom";
 
-import { categories, tours } from "./data";
 
 import { v4 as uuidv4 } from "uuid";
 import "./style.scss";
@@ -23,13 +23,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
+import axios from "axios";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { Navigation, Pagination } from "swiper/modules";
 import AskQuote from "../../components/AskQuote";
-import OrderModal from "../../components/OrderModal";
-import axios from "axios";
 import CommentModal from "../../components/CommentModal";
-import Swal from "sweetalert2";
+import OrderModal from "../../components/OrderModal";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHotels } from "../../redux/slice/hotelSlice";
 
 function Detail() {
     const { id } = useParams();
@@ -43,31 +45,14 @@ function Detail() {
     const handleCloseOrder = () => {
         setOpenComment(false);
     }
-    const [data, setdata] = useState({});
 
     const [inFavorites, setinFavorites] = useState(false);
-
+    const dispatch = useDispatch()
+    const hotels = useSelector(state => state.hotel.hotels)
+    const data = hotels.filter(elem => elem.id == id)[0]
     useEffect(() => {
-        const fetchHotel = async () => {
-            const source = axios.CancelToken.source(); // Create a cancel token
-
-            try {
-                const response = await axios.get(import.meta.env.VITE_APP_BASE_URL + "hotels");
-                setdata(response.data.filter(elem => elem.id == id)[0]);
-                console.log(data)
-            } catch (error) {
-                if (axios.isCancel(error)) {
-                    console.log("Request canceled:", error.message);
-                } else {
-                    console.error("Error fetching hotels:", error);
-                }
-            }
-
-            return () => source.cancel("Fetch canceled due to component unmounting"); // Cleanup
-        };
-
-        fetchHotel();
-    }, []);
+        dispatch(fetchHotels())
+    }, [dispatch]);
 
     const favs = JSON.parse(localStorage.getItem('favorites')) || []
     useEffect(() => {
@@ -190,7 +175,7 @@ function Detail() {
                                     </li>
                                 </ul>
                                 <div className="price">
-                                    <p>total</p> <h4>$ {data.price}</h4>
+                                    <p>total</p> <h4>${data.price}</h4>
                                 </div>
                             </div>
                             <button onClick={() => {

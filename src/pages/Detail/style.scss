@@ -79,7 +79,9 @@
             .texts {
                 width: 100%;
 
-                .like {}
+                .like {
+                    cursor: pointer;
+                }
 
                 h2 {
                     font-weight: 600;

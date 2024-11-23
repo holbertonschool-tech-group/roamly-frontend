@@ -1,5 +1,4 @@
-1. post comment error
 2. search logic not working
 3. admin add delete edit
 4. admin login
-5. http://localhost:3000/destinations/ some destionations doenst have categories, delete them then re-add from datas.json
+5. http://localhost:3000/destinations/ some destionations doesnt have categories, delete them then re-add from datas.json

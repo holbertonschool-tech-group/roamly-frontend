@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Navbar from "./components/Navbar"
 import Table from "./components/Table";
+import Login from "./components/Login";
 
 
 function Admin() {
@@ -9,8 +10,13 @@ function Admin() {
     useEffect(() => {
     }, []);
     return (<div className="Admin ">
-        <Navbar active={active} setactive={setactive} />
-        <Table active={active} />
+        {
+            localStorage.getItem('login') ? <>
+
+                <Navbar active={active} setactive={setactive} />
+                <Table active={active} />
+            </> : <Login />
+        }
 
     </div>)
 }

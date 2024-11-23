@@ -1,6 +1,10 @@
-
+import { LuLogOut } from "react-icons/lu";
 import './style.scss'
 function Navbar({ active, setactive }) {
+    const handleLogin = () => {
+        localStorage.removeItem('login');
+        window.location.reload();
+    }
     return (
         <div className='AdminNavbar '>
 
@@ -20,6 +24,12 @@ function Navbar({ active, setactive }) {
                     <button className={active == 'destinations' ? 'active' : ""} onClick={() => {
                         setactive('destinations')
                     }}>Destinations</button>
+                    <button onClick={handleLogin}>
+                        <LuLogOut />
+                    </button>
+
+
+
                 </div>
             </div>
         </div>

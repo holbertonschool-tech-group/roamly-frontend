@@ -1,0 +1,28 @@
+.Login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+
+    h1 {
+        font-size: 45px;
+    }
+
+    input {
+        padding: 10px 15px;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid gray;
+        width: 300px;
+
+    }
+
+    button {
+        background-color: var(--brand-color);
+        padding: 10px 15px;
+        border-radius: 5px;
+        width: 300px;
+        color: #fff;
+    }
+}

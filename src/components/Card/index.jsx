@@ -4,11 +4,11 @@ import { FaBath, FaLocationDot } from 'react-icons/fa6';
 import { IoIosBed } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import './style.scss';
-function Card({ data }) {
+function Card({ data, type }) {
     const navigate = useNavigate();
     return (
         <div className="card" onClick={() => {
-            navigate(`/details/${data.id}`)
+            navigate(`/details/${data.id}?category=${type}`)
         }}>
             <div
                 className="img"
@@ -54,6 +54,7 @@ Card.propTypes = {
         bedrooms: PropTypes.number.isRequired,
         near: PropTypes.string.isRequired,
     }).isRequired,
+    type: PropTypes.string
 }
 
 export default Card

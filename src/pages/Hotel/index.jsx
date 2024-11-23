@@ -64,7 +64,7 @@ function Hotel() {
           {hotels?.map((hotel) => {
             return (
               <div key={uuidv4()}>
-                <Card data={hotel} />
+                <Card data={hotel} type={'hotel'} />
                 {/* <button onClick={() => handleReservation(1, hotel.id)}>Reserve</button> */}
               </div>
             );

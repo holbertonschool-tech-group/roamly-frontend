@@ -7,7 +7,7 @@ import { FaBath, FaStar } from "react-icons/fa";
 
 import { FaLocationDot } from "react-icons/fa6";
 
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 
 import { v4 as uuidv4 } from "uuid";
@@ -32,11 +32,19 @@ import CommentModal from "../../components/CommentModal";
 import OrderModal from "../../components/OrderModal";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHotels } from "../../redux/slice/hotelSlice";
+import { fetchDestinations } from "../../redux/slice/destinationSlice";
 
 function Detail() {
     const { id } = useParams();
+    const location = useLocation();
     const [openOrder, setOpenOrder] = useState(false);
     const [openComment, setOpenComment] = useState(false);
+    const getCategoryFromUrl = () => {
+        const params = new URLSearchParams(location.search);
+        return params.get('category');
+    };
+
+    const category = getCategoryFromUrl();
 
     // <p>ID: {id}</p>
     const handleClose = () => {
@@ -48,10 +56,16 @@ function Detail() {
 
     const [inFavorites, setinFavorites] = useState(false);
     const dispatch = useDispatch()
+
     const hotels = useSelector(state => state.hotel.hotels)
-    const data = hotels.filter(elem => elem.id == id)[0]
+    const tours = useSelector(state => state.destination.destinations)
+    const data =
+        category == 'hotel' ?
+            hotels.filter(elem => elem.id == id)[0] :
+            tours.filter(elem => elem.id == id)[0]
     useEffect(() => {
         dispatch(fetchHotels())
+        dispatch(fetchDestinations())
     }, [dispatch]);
 
     const favs = JSON.parse(localStorage.getItem('favorites')) || []

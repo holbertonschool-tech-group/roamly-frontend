@@ -54,7 +54,7 @@ function Destination() {
 
             <div className="grid">
               {tours.map((tour) => {
-                return <Card key={uuidv4()} data={tour} />;
+                return <Card key={uuidv4()} data={tour} type={'destination'} />;
               })}
             </div>
 

@@ -1,1 +1,6 @@
-1. post comment error
+2. search logic not working
+3. admin edit
+
+5. http://localhost:3000/destinations/ some destionations doesnt have categories, delete them then re-add from datas.json
+
+6. empty order

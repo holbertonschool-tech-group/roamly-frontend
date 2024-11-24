@@ -8,7 +8,7 @@ export const fetchDestinations = createAsyncThunk(
     const source = axios.CancelToken.source(); // Create a cancel token
     try {
       const response = await axios.get(
-        import.meta.env.VITE_APP_BASE_URL + "hotels",
+        import.meta.env.VITE_APP_BASE_URL + "destinations",
         {
           cancelToken: source.token
         }
@@ -32,18 +32,23 @@ const initialState = {
   error: null
 };
 
-export const hotelSlice = createSlice({
-  name: "hotel",
+export const destinationsSlice = createSlice({
+  name: "destinations",
   initialState,
   reducers: {
     filterDestinationByTitle: (state, action) => {
+      const searchTerm = action.payload.trim().toLowerCase(); // trim and convert search term to lowercase
+      if (searchTerm === "") {
+        // If the search term is empty, don't filter and return all data
+        return;
+      }
       state.destinations = state.destinations.filter(
-        (elem) => elem.title === action.payload
+        (elem) => elem.title && elem.title.toLowerCase().includes(searchTerm) // ensure elem.title is defined
       );
     },
     filterDestinationByPrice: (state, action) => {
       state.destinations = state.destinations.filter(
-        (elem) => elem.price <= action.payload
+        (elem) => elem.price < action.payload
       );
     }
   },
@@ -54,8 +59,7 @@ export const hotelSlice = createSlice({
       })
       .addCase(fetchDestinations.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload);
-        state.destinations = action.payload[0].destinations;
+        state.destinations = action.payload;
       })
       .addCase(fetchDestinations.rejected, (state, action) => {
         state.loading = false;
@@ -66,5 +70,5 @@ export const hotelSlice = createSlice({
 
 // Action creators and reducer export
 export const { filterDestinationByTitle, filterDestinationByPrice } =
-  hotelSlice.actions;
-export default hotelSlice.reducer;
+  destinationsSlice.actions;
+export default destinationsSlice.reducer;

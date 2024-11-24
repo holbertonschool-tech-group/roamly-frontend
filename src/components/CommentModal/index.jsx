@@ -4,15 +4,13 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
-import { MdEmail } from "react-icons/md";
 
 import { styled } from "@mui/material/styles";
 
 import PropTypes from 'prop-types';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
-import { FaRegCalendarAlt } from "react-icons/fa";
 
 
 import { Typography } from "@mui/material";
@@ -20,6 +18,9 @@ import axios from "axios";
 import { FaUserAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import "./style.scss";
+import { useDispatch } from "react-redux";
+import { fetchHotels } from "../../redux/slice/hotelSlice";
+import { fetchDestinations } from "../../redux/slice/destinationSlice";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     "& .MuiDialogContent-root": {
@@ -31,44 +32,62 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     }
 }));
 
-function CommentModal({ handleClose, data }) {
+function CommentModal({ handleClose, data, category }) {
+    const dispatch = useDispatch()
+
     const [name, setname] = useState('');
     const [country, setcountry] = useState('');
     const [message, setmessage] = useState('');
+
+    const validateForm = () => {
+        if (!name || !country || !message) {
+            Swal.fire({
+                icon: "warning",
+                title: "Missing Fields",
+                text: "Please fill out all the fields before submitting.",
+                confirmButtonText: "OK",
+            });
+            return false;
+        }
+        return true;
+    };
     const handleOrder = () => {
+        if (!validateForm()) return;
         const comment = {
             name: name,
             country: country,
             content: message,
-        }
-
-        // Update comments by appending the new comment
-        const updatedComments = data.comments ? [...data.comments, comment] : [comment];
-
-        // Prepare the updated hotel data to be sent
-        const updatedHotelData = {
-            ...data, // Include the existing hotel data
-            comments: updatedComments // Add the updated comments array
         };
 
-        // Send the PUT request to the API with explicit Content-Type header
-        axios.put(import.meta.env.VITE_APP_BASE_URL + 'hotels' + `/${data.id}`, JSON.stringify(updatedHotelData), {
-            headers: {
-                'Content-Type': 'application/json' // Ensures the data is sent as JSON
+        // Updated data to replace the entire document or relevant fields
+        const updatedHotelData = {
+            ...data, // Include all existing data
+            comments: [...data.comments, comment], // Update comments array
+        };
+
+        // Use PUT to update the hotel
+        axios.put(
+            `${import.meta.env.VITE_APP_BASE_URL}${category}/${data._id}`,
+            updatedHotelData,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             }
-        })
+        )
             .then(() => {
+
                 Swal.fire({
                     position: "center",
                     icon: "success",
                     title: "Thank you for your response",
                     showConfirmButton: true,
                     confirmButtonText: "Continue",
-                    // timer: 1500 // Optionally, uncomment to auto-close the alert
                 });
+                dispatch(fetchHotels())
+                dispatch(fetchDestinations())
             })
             .catch((error) => {
-                // Handle error if the request fails
                 Swal.fire({
                     position: "center",
                     icon: "error",
@@ -78,6 +97,7 @@ function CommentModal({ handleClose, data }) {
                 console.error("Error updating comments:", error);
             });
     };
+
 
 
     return (
@@ -129,7 +149,7 @@ function CommentModal({ handleClose, data }) {
                                 required
                                 type="text"
                                 placeholder="Your country"
-                                value={name}
+                                value={country}
                                 onChange={(e) => {
                                     setcountry(e.target.value)
                                 }}
@@ -184,6 +204,7 @@ CommentModal.propTypes = {
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
     }).isRequired,
+    category: PropTypes.func.isRequired
 };
 
 export default CommentModal;

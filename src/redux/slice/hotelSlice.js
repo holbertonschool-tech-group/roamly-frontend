@@ -34,7 +34,17 @@ const initialState = {
 export const hotelSlice = createSlice({
   name: "hotel",
   initialState,
-  reducers: {},
+  reducers: {
+    filterHotelsByPrice: (state, action) => {
+      state.hotels = state.hotels.filter((elem) => elem.price < action.payload);
+    },
+    filterHotelsByName: (state, action) => {
+      const searchTerm = action.payload.toLowerCase();
+      state.hotels = state.hotels.filter((elem) =>
+        elem.title.toLowerCase().includes(searchTerm)
+      );
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchHotels.pending, (state) => {
@@ -42,8 +52,7 @@ export const hotelSlice = createSlice({
       })
       .addCase(fetchHotels.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload);
-        state.hotels = action.payload[0].hotels;
+        state.hotels = action.payload;
       })
       .addCase(fetchHotels.rejected, (state, action) => {
         state.loading = false;
@@ -51,6 +60,6 @@ export const hotelSlice = createSlice({
       });
   }
 });
-
+export const { filterHotelsByPrice, filterHotelsByName } = hotelSlice.actions;
 // Action creators and reducer export
 export default hotelSlice.reducer;

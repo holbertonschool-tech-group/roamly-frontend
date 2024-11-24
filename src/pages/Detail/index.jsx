@@ -60,8 +60,8 @@ function Detail() {
     const tours = useSelector(state => state.destination.destinations)
     const data =
         category == 'hotel' ?
-            hotels.filter(elem => elem.id == id)[0] :
-            tours.filter(elem => elem.id == id)[0]
+            hotels.filter(elem => elem._id == id)[0] :
+            tours.filter(elem => elem._id == id)[0]
     useEffect(() => {
         dispatch(fetchHotels())
         dispatch(fetchDestinations())
@@ -114,7 +114,7 @@ function Detail() {
                     }
                 </>
                 {
-                    openComment && <CommentModal handleClose={handleCloseOrder} data={data} />
+                    openComment && <CommentModal handleClose={handleCloseOrder} data={data} category={category} />
                 }
                 <div className="detailPage container">
                     <Swiper
@@ -180,11 +180,11 @@ function Detail() {
                                 </div>
                                 <ul>
                                     <li>
-                                        <IoIosBed size={20} /> {data.bathrooms}{" "}
+                                        <IoIosBed size={20} /> {data.bathrooms || 2}{" "}
                                         bathrooms
                                     </li>
                                     <li>
-                                        <FaBath size={20} /> {data.bedrooms}{" "}
+                                        <FaBath size={20} /> {data.bedrooms || 2}{" "}
                                         bedrooms
                                     </li>
                                     <li>
@@ -203,18 +203,17 @@ function Detail() {
                     <div className="categories">
                         <h3>Categories:</h3>
                         <ul>
-
                             {data?.categories?.map((category) => {
                                 return (
                                     <li key={uuidv4()}>
                                         <div className="head">
-                                            <p> {category.name}</p> <p> {category.rating}</p>
+                                            <p> {category.title}</p> <p> {category.points}</p>
                                         </div>
                                         <div className="line">
                                             <div
                                                 className="current"
                                                 style={{
-                                                    width: `${category.rating * 10}%`
+                                                    width: `${category.points}%`
                                                 }}
                                             />
                                         </div>
@@ -232,52 +231,56 @@ function Detail() {
                                 Add a review
                             </button>
                         </div>
+                        {
 
-                        <Swiper
-                            pagination={{
-                                clickable: true
-                            }}
-                            navigation={true}
-                            modules={[Pagination, Navigation]}
-                            className="reviews"
-                            loop={true}
-                            breakpoints={{
-                                640: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 10,
-                                },
-                                768: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 20,
-                                },
-                                1024: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 30,
-                                },
-                            }}
-                        >
-                            {data?.comments?.map((review) => {
-                                return (
-                                    <SwiperSlide key={uuidv4()}>
-                                        <div className="card">
-                                            <div className="head">
-                                                <div src="" alt="" className="img">
-                                                    {review.name.charAt(0)}
+                            data?.comments.length != 0 ? <Swiper
+                                pagination={{
+                                    clickable: true
+                                }}
+                                navigation={true}
+                                modules={[Pagination, Navigation]}
+                                className="reviews"
+                                loop={true}
+                                breakpoints={{
+                                    640: {
+                                        slidesPerView: 1,
+                                        spaceBetween: 10,
+                                    },
+                                    768: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 20,
+                                    },
+                                    1024: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 30,
+                                    },
+                                }}
+                            >
+                                {data?.comments?.map((review) => {
+                                    return (
+                                        <SwiperSlide key={uuidv4()}>
+                                            <div className="card">
+                                                <div className="head">
+                                                    <div src="" alt="" className="img">
+                                                        {review.name.charAt(0)}
+                                                    </div>
+                                                    <div className="about">
+                                                        <div className="name"> {review.name}</div>
+                                                        <div className="country"> {review.country}</div>
+                                                    </div>
                                                 </div>
-                                                <div className="about">
-                                                    <div className="name"> {review.name}</div>
-                                                    <div className="country"> {review.country}</div>
+                                                <div className="content">
+                                                    &apos;{review.content}
+                                                    &apos;
                                                 </div>
                                             </div>
-                                            <div className="content">
-                                                &apos;{review.content}
-                                                &apos;
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
-                                );
-                            })}
-                        </Swiper>
+                                        </SwiperSlide>
+                                    );
+                                })}
+                            </Swiper> : <p>Nothing to show here</p>
+
+                        }
+
                     </div>
                 </div>
                 <AskQuote />

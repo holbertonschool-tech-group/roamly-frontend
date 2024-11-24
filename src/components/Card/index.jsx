@@ -8,7 +8,7 @@ function Card({ data, type }) {
     const navigate = useNavigate();
     return (
         <div className="card" onClick={() => {
-            navigate(`/details/${data?.id}?category=${type}`)
+            navigate(`/details/${data?._id}?category=${type}`)
         }}>
             <div
                 className="img"
@@ -44,7 +44,7 @@ function Card({ data, type }) {
 }
 Card.propTypes = {
     data: PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
         img: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
         duration: PropTypes.number.isRequired,

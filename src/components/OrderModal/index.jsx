@@ -39,17 +39,34 @@ function OrderModal({ handleClose, data }) {
     const [message, setmessage] = useState('');
 
     const destination = data.title
-    const handleOrder = () => {
-        const order = {
-            data,
-            name,
-            email,
-            destination,
-            checkInDate,
-            checkOutDate,
-            message
+    const image = data.img[0]
+    const price = data.price
+    const validateForm = () => {
+        if (!name || !email || !checkInDate || !checkOutDate || !message) {
+            Swal.fire({
+                icon: "warning",
+                title: "Missing Fields",
+                text: "Please fill out all the fields before submitting.",
+                confirmButtonText: "OK",
+            });
+            return false;
         }
-        axios.post(import.meta.env.VITE_APP_BASE_URL + 'orders', order).then(() => {
+        return true;
+    };
+    const handleOrder = () => {
+        if (!validateForm()) return;
+        const order = {
+            name: name,
+            email: email,
+            destination: destination,
+            checkInDate: checkInDate,
+            checkOutDate: checkOutDate,
+            message: message,
+            image: image || '',
+            price: price,
+            status: 'created'
+        }
+        axios.post(import.meta.env.VITE_APP_BASE_URL + 'bookings', order).then(() => {
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -193,6 +210,8 @@ OrderModal.propTypes = {
     data: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        img: PropTypes.array.isRequired,
+        price: PropTypes.string.isRequired,
     }).isRequired,
 };
 

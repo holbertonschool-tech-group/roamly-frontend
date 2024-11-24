@@ -1,18 +1,21 @@
-import { FaChevronDown } from "react-icons/fa6";
-import { FaRegCalendarAlt } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
-import { useState } from "react";
 import PropTypes from "prop-types";
-import "./style.scss";
+import { useState } from "react";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa6";
+import { IoSearch } from "react-icons/io5";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { filterHotelsByName, filterHotelsByPrice } from "../../redux/slice/hotelSlice";
+import "./style.scss";
+import { filterDestinationByPrice, filterDestinationByTitle } from "../../redux/slice/destinationSlice";
 
 function ReservationBar({ home, type }) {
     const [active, setActive] = useState("destination");
     const [destination, setDestination] = useState("");
     const [checkInDate, setCheckInDate] = useState("");
     const [checkOutDate, setCheckOutDate] = useState("");
-    const [priceLimit, setPriceLimit] = useState("100");
-
+    const [priceLimit, setPriceLimit] = useState("");
+    const dispatch = useDispatch()
     const navigate = useNavigate();
 
     function handleSection(value) {
@@ -30,6 +33,16 @@ function ReservationBar({ home, type }) {
         }).toString();
 
         console.log(`Navigating to /${active}?${params}`);
+
+        if (active == "destination") {
+            priceLimit && dispatch(filterDestinationByPrice(priceLimit))
+            destination && dispatch(filterDestinationByTitle(destination))
+        } else {
+            priceLimit && dispatch(filterHotelsByPrice(priceLimit))
+            destination && dispatch(filterHotelsByName(destination))
+        }
+
+
 
         home ? navigate(`/${active}?${params}`) : navigate(`/${type}?${params}`);
 

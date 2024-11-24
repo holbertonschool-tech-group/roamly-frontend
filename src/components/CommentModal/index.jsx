@@ -134,7 +134,7 @@ function CommentModal({ handleClose, data }) {
                                 required
                                 type="text"
                                 placeholder="Your country"
-                                value={name}
+                                value={country}
                                 onChange={(e) => {
                                     setcountry(e.target.value)
                                 }}

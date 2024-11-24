@@ -18,7 +18,7 @@ function Navbar() {
         location.pathname.includes('details') && setScrolled(true)
         !location.pathname.includes('details') && window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [location.pathname]);
 
     return (
         <div className={`Navbar ${scrolled ? "scrolled" : ""}`}

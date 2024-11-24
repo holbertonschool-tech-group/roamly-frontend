@@ -39,6 +39,8 @@ function OrderModal({ handleClose, data }) {
     const [message, setmessage] = useState('');
 
     const destination = data.title
+    const image = data.img[0]
+    const price = data.price
     const handleOrder = () => {
         const order = {
             name: name,
@@ -47,9 +49,11 @@ function OrderModal({ handleClose, data }) {
             checkInDate: checkInDate,
             checkOutDate: checkOutDate,
             message: message,
+            image: image || '',
+            price: price,
             status: 'created'
         }
-        axios.post(import.meta.env.VITE_APP_BASE_URL + 'orders', order).then(() => {
+        axios.post(import.meta.env.VITE_APP_BASE_URL + 'bookings', order).then(() => {
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -193,6 +197,8 @@ OrderModal.propTypes = {
     data: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        img: PropTypes.array.isRequired,
+        price: PropTypes.string.isRequired,
     }).isRequired,
 };
 

@@ -17,7 +17,7 @@ function Table({ active }) {
     const [rows, setRows] = useState([]);
 
     // Predefined rows
-    const bookingRows = ["name", "email", "destination", "checkInDate", "checkOutDate", "message", "delete"];
+    const bookingRows = ["name", "email", "destination", "checkInDate", "checkOutDate", "message", "status"];
     const hotelRows = ["title", "price", "location", "bathrooms", "bedrooms", "review", "delete"];
     const destinationRows = ["title", "price", "location", "bathrooms", "bedrooms", "review", "delete"];
 
@@ -117,6 +117,45 @@ function Table({ active }) {
                                         </div>
                                     );
                                 }
+                                if (row === "status") {
+                                    const handleStatusChange = async (e) => {
+                                        console.log(item)
+                                        const newValue = e.target.value;
+
+                                        try {
+                                            // Prepare updated item payload
+                                            const updatedItem = {
+                                                ...item,
+                                                status: newValue, // Update the status field
+                                            };
+
+                                            // Send PUT request to the backend
+                                            await axios.put(`${import.meta.env.VITE_APP_BASE_URL}${active}/${item._id}`, updatedItem);
+
+                                            Swal.fire("Success!", "Status updated successfully.", "success");
+
+                                            // Optionally refresh the data after update
+                                            dispatch(active === "bookings" ? fetchBookings() : active === "hotels" ? fetchHotels() : fetchDestinations());
+                                        } catch (error) {
+                                            Swal.fire("Error!", "Failed to update the status.", "error");
+                                        }
+                                    };
+
+                                    return (
+                                        <div className="table-data" key={row}>
+                                            <select
+                                                value={item.status} // Bind to the item's current status
+                                                onChange={handleStatusChange}
+                                            >
+                                                <option value="created">created</option>
+                                                <option value="accepted">accepted</option>
+                                                <option value="rejected">rejected</option>
+                                            </select>
+                                        </div>
+                                    );
+                                }
+
+
                                 return (
                                     <div className="table-data" key={row}>
                                         {item[row] || "-"}

@@ -49,6 +49,14 @@ $color-form-highlight: #EEEEEE;
             color: #fff;
             border-radius: 5px;
         }
+
+        select {
+            background-color: transparent;
+            border: none;
+            text-transform: capitalize;
+            cursor: pointer;
+            outline: none;
+        }
     }
 
     .header__item {

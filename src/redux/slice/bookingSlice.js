@@ -8,7 +8,7 @@ export const fetchBookings = createAsyncThunk(
     const source = axios.CancelToken.source(); // Create a cancel token
     try {
       const response = await axios.get(
-        import.meta.env.VITE_APP_BASE_URL + "orders",
+        import.meta.env.VITE_APP_BASE_URL + "bookings",
         {
           cancelToken: source.token
         }

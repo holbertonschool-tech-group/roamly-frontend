@@ -119,25 +119,50 @@ function Table({ active }) {
                                 }
                                 if (row === "status") {
                                     const handleStatusChange = async (e) => {
-                                        console.log(item)
                                         const newValue = e.target.value;
 
-                                        try {
-                                            // Prepare updated item payload
-                                            const updatedItem = {
-                                                ...item,
-                                                status: newValue, // Update the status field
-                                            };
+                                        if (newValue === "delete") {
+                                            // Confirm deletion with Swal
+                                            const result = await Swal.fire({
+                                                title: 'Are you sure?',
+                                                text: "This action cannot be undone.",
+                                                icon: 'warning',
+                                                showCancelButton: true,
+                                                confirmButtonText: 'Yes, delete it!',
+                                                cancelButtonText: 'Cancel',
+                                            });
 
-                                            // Send PUT request to the backend
-                                            await axios.put(`${import.meta.env.VITE_APP_BASE_URL}${active}/${item._id}`, updatedItem);
+                                            if (result.isConfirmed) {
+                                                try {
+                                                    // Send DELETE request to backend
+                                                    await axios.delete(`${import.meta.env.VITE_APP_BASE_URL}${active}/${item._id}`);
 
-                                            Swal.fire("Success!", "Status updated successfully.", "success");
+                                                    Swal.fire("Deleted!", "Item has been deleted.", "success");
 
-                                            // Optionally refresh the data after update
-                                            dispatch(active === "bookings" ? fetchBookings() : active === "hotels" ? fetchHotels() : fetchDestinations());
-                                        } catch (error) {
-                                            Swal.fire("Error!", "Failed to update the status.", "error");
+                                                    // Optionally refresh the data after deletion
+                                                    dispatch(active === "bookings" ? fetchBookings() : active === "hotels" ? fetchHotels() : fetchDestinations());
+                                                } catch (error) {
+                                                    Swal.fire("Error!", "Failed to delete the item.", "error");
+                                                }
+                                            }
+                                        } else {
+                                            try {
+                                                // Prepare updated item payload
+                                                const updatedItem = {
+                                                    ...item,
+                                                    status: newValue, // Update the status field
+                                                };
+
+                                                // Send PUT request to the backend
+                                                await axios.put(`${import.meta.env.VITE_APP_BASE_URL}${active}/${item._id}`, updatedItem);
+
+                                                Swal.fire("Success!", "Status updated successfully.", "success");
+
+                                                // Optionally refresh the data after update
+                                                dispatch(active === "bookings" ? fetchBookings() : active === "hotels" ? fetchHotels() : fetchDestinations());
+                                            } catch (error) {
+                                                Swal.fire("Error!", "Failed to update the status.", "error");
+                                            }
                                         }
                                     };
 
@@ -147,13 +172,15 @@ function Table({ active }) {
                                                 value={item.status} // Bind to the item's current status
                                                 onChange={handleStatusChange}
                                             >
-                                                <option value="created">created</option>
-                                                <option value="accepted">accepted</option>
-                                                <option value="rejected">rejected</option>
+                                                <option value="created">Created</option>
+                                                <option value="accepted">Accepted</option>
+                                                <option value="rejected">Rejected</option>
+                                                <option value="delete">Delete</option> {/* Add delete option */}
                                             </select>
                                         </div>
                                     );
                                 }
+
 
 
                                 return (

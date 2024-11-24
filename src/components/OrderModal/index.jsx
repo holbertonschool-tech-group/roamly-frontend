@@ -41,7 +41,20 @@ function OrderModal({ handleClose, data }) {
     const destination = data.title
     const image = data.img[0]
     const price = data.price
+    const validateForm = () => {
+        if (!name || !email || !checkInDate || !checkOutDate || !message) {
+            Swal.fire({
+                icon: "warning",
+                title: "Missing Fields",
+                text: "Please fill out all the fields before submitting.",
+                confirmButtonText: "OK",
+            });
+            return false;
+        }
+        return true;
+    };
     const handleOrder = () => {
+        if (!validateForm()) return;
         const order = {
             name: name,
             email: email,

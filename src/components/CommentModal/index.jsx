@@ -38,7 +38,21 @@ function CommentModal({ handleClose, data }) {
     const [name, setname] = useState('');
     const [country, setcountry] = useState('');
     const [message, setmessage] = useState('');
+
+    const validateForm = () => {
+        if (!name || !country || !message) {
+            Swal.fire({
+                icon: "warning",
+                title: "Missing Fields",
+                text: "Please fill out all the fields before submitting.",
+                confirmButtonText: "OK",
+            });
+            return false;
+        }
+        return true;
+    };
     const handleOrder = () => {
+        if (!validateForm()) return;
         const comment = {
             name: name,
             country: country,
@@ -62,6 +76,7 @@ function CommentModal({ handleClose, data }) {
             }
         )
             .then(() => {
+
                 Swal.fire({
                     position: "center",
                     icon: "success",

@@ -180,11 +180,11 @@ function Detail() {
                                 </div>
                                 <ul>
                                     <li>
-                                        <IoIosBed size={20} /> {data.bathrooms}{" "}
+                                        <IoIosBed size={20} /> {data.bathrooms || 2}{" "}
                                         bathrooms
                                     </li>
                                     <li>
-                                        <FaBath size={20} /> {data.bedrooms}{" "}
+                                        <FaBath size={20} /> {data.bedrooms || 2}{" "}
                                         bedrooms
                                     </li>
                                     <li>

@@ -1,0 +1,52 @@
+.AddPost {
+    .Switch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    button,
+    .submit {
+        padding: 10px 15px;
+        border-radius: 5px;
+
+    }
+
+    .submit {
+        background-color: var(--brand-color);
+        margin-left: 10px;
+        color: #fff;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    label {
+        margin-right: 10px;
+
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .input {
+        display: flex;
+        align-items: flex-start;
+        justify-content: left;
+        flex-direction: column;
+        padding: 10px;
+
+        input,
+        textarea {
+            border: 1px solid rgb(190, 190, 190);
+            padding: 5px 15px;
+            border-radius: 5px;
+            width: 100%;
+            outline: none;
+        }
+    }
+}

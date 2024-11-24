@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Navbar from "./components/Navbar"
 import Table from "./components/Table";
 import Login from "./components/Login";
+import AddPost from "./components/AddPost";
 
 
 function Admin() {
@@ -14,7 +15,11 @@ function Admin() {
             localStorage.getItem('login') ? <>
 
                 <Navbar active={active} setactive={setactive} />
-                <Table active={active} />
+
+                {
+                    active == 'add' ? <AddPost /> :
+                        <Table active={active} />
+                }
             </> : <Login />
         }
 

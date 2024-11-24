@@ -32,7 +32,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     }
 }));
 
-function CommentModal({ handleClose, data }) {
+function CommentModal({ handleClose, data, category }) {
     const dispatch = useDispatch()
 
     const [name, setname] = useState('');
@@ -67,7 +67,7 @@ function CommentModal({ handleClose, data }) {
 
         // Use PUT to update the hotel
         axios.put(
-            `${import.meta.env.VITE_APP_BASE_URL}hotels/${data._id}`,
+            `${import.meta.env.VITE_APP_BASE_URL}${category}/${data._id}`,
             updatedHotelData,
             {
                 headers: {
@@ -204,6 +204,7 @@ CommentModal.propTypes = {
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
     }).isRequired,
+    category: PropTypes.func.isRequired
 };
 
 export default CommentModal;

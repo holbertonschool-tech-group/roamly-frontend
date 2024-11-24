@@ -114,7 +114,7 @@ function Detail() {
                     }
                 </>
                 {
-                    openComment && <CommentModal handleClose={handleCloseOrder} data={data} />
+                    openComment && <CommentModal handleClose={handleCloseOrder} data={data} category={category} />
                 }
                 <div className="detailPage container">
                     <Swiper

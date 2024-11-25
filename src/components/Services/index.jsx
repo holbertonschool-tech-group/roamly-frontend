@@ -24,7 +24,7 @@ function Services() {
                 })}
             </div>
             <div className="infos">
-                <div className="cursive">Welcome to Pacific</div>
+                <div className="cursive">Welcome to Roamly</div>
                 <h1>It&apos;s time to start your adventure</h1>
                 <p className="first">
                     A small river named Duden flows by their place and supplies it with

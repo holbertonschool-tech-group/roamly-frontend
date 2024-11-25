@@ -52,7 +52,7 @@ function Footer() {
                     <div className="url">
                         <a ><FaPhoneAlt fill="var(--brand-color)" />+2 392 3929 210</a></div>
                     <div className="url">
-                        <a ><FaPaperPlane fill="var(--brand-color)" />info@yourdomain.com</a></div>
+                        <a ><FaPaperPlane fill="var(--brand-color)" />roamly@mail.eu</a></div>
                 </div>
             </div>
         </div>

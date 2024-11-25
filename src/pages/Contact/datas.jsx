@@ -15,7 +15,7 @@ export const contacts = [
     }, {
         title: 'Email Address',
         icon: FaPaperPlane,
-        info: 'info@yoursite.com'
+        info: 'roamly@mail.eu'
     }, {
         title: 'Website',
         icon: GiEarthAmerica,

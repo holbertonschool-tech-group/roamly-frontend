@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Define the async thunk for fetching hotels
+
 export const fetchHotels = createAsyncThunk(
   "hotel/fetchHotels",
   async (_, { rejectWithValue }) => {
-    const source = axios.CancelToken.source(); // Create a cancel token
+    const source = axios.CancelToken.source(); 
     try {
       const response = await axios.get(
         import.meta.env.VITE_APP_BASE_URL + "hotels",
@@ -69,5 +69,5 @@ export const hotelSlice = createSlice({
 });
 export const { filterHotelsByPrice, filterHotelsByName, resetFilters } =
   hotelSlice.actions;
-// Action creators and reducer export
+  
 export default hotelSlice.reducer;

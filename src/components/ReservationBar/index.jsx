@@ -44,10 +44,6 @@ function ReservationBar({ home, type }) {
         home ? navigate(`/${active}?${params}`) : navigate(`/${type}?${params}`);
 
     };
-
-    // useEffect(() => {
-    //     handleSearch(e)
-    // }, [priceLimit, destination, dispatch]);
     return (
         <div
             className="ReservationBar container"

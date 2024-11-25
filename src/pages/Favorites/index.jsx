@@ -15,6 +15,7 @@ function Favorites() {
     dispatch(fetchDestinations());
   }, [dispatch]);
 
+  
   const hotels = useSelector(state => state.hotel.hotels);
   const tours = useSelector(state => state.destination.destinations);
   const favs = JSON.parse(localStorage.getItem('favorites')) || [];

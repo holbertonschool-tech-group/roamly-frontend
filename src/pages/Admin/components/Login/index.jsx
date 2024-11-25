@@ -9,8 +9,8 @@ function Login() {
     const [loading, setLoading] = useState(false);
 
     const handleLogin = async (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
-        setLoading(true); // Set loading state
+        e.preventDefault(); 
+        setLoading(true); 
 
         const credentials = { username, password };
 
@@ -18,7 +18,7 @@ function Login() {
             const response = await axios.post(import.meta.env.VITE_APP_BASE_URL + 'login', credentials);
             if (response.status === 200) {
                 localStorage.setItem('login', 'true');
-                window.location.reload(); // Refresh the page on successful login
+                window.location.reload(); 
             }
         } catch (error) {
             console.error('Login failed:', error.response?.data?.message || error.message);
@@ -29,7 +29,7 @@ function Login() {
                 showConfirmButton: true,
             });
         } finally {
-            setLoading(false); // Reset loading state
+            setLoading(false); 
         }
     };
 

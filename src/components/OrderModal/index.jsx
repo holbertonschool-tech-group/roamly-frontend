@@ -5,16 +5,10 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import { MdEmail } from "react-icons/md";
-
 import { styled } from "@mui/material/styles";
-
 import PropTypes from 'prop-types';
 import { useState } from "react";
-
-
 import { FaRegCalendarAlt } from "react-icons/fa";
-
-
 import { Typography } from "@mui/material";
 import axios from "axios";
 import { FaUserAlt } from "react-icons/fa";
@@ -73,7 +67,6 @@ function OrderModal({ handleClose, data }) {
                 title: "Thank You for Booking at Roamly",
                 showConfirmButton: true,
                 confirmButtonText: "Continue",
-                // timer: 1500
                 text: "Your reservation has been successfully completed. Your request will be reviewed, and you will be contacted shortly to finalize your booking and assist with any additional details."
             });
         })

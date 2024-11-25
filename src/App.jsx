@@ -4,8 +4,7 @@ function App() {
 
   return (
     <>
-      Pacific
-      Travel Agency
+      Roamly
     </>
   )
 }

@@ -47,12 +47,12 @@ function Footer() {
                     </div>
                     <div className="url">
                         <FaLocationDot fill="var(--brand-color)" />
-                        <a >203 Fake St. Mountain View, San Francisco, California, USA</a>
+                        <a >Baku, Azerbaijan</a>
                     </div>
                     <div className="url">
-                        <a ><FaPhoneAlt fill="var(--brand-color)" />+2 392 3929 210</a></div>
+                        <a ><FaPhoneAlt fill="var(--brand-color)" />+994 111 11 11</a></div>
                     <div className="url">
-                        <a ><FaPaperPlane fill="var(--brand-color)" />info@yourdomain.com</a></div>
+                        <a ><FaPaperPlane fill="var(--brand-color)" />roamly@gmail.com</a></div>
                 </div>
             </div>
         </div>

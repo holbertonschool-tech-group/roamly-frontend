@@ -34,7 +34,7 @@ function Hero({ home, title }) {
                 <IoIosPlay size={32} />
               </button>
 
-              <p>Welcome to Pacific</p>
+              <p>Welcome to Roamly</p>
               <div className="head">Discover Your Favorite Place with Us</div>
               <div className="sub">
 

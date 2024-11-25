@@ -26,7 +26,7 @@ function Destinations() {
 
             <div className="">
 
-                <p>Pacific Provide Places</p> <h1>Select Your Destination</h1>
+                <p>Roamly Provide Places</p> <h1>Select Your Destination</h1>
                 <div className="swiperContainer">
 
                     <Swiper

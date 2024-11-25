@@ -70,7 +70,7 @@ function OrderModal({ handleClose, data }) {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "Thank You for Booking at Pacific",
+                title: "Thank You for Booking at Roamly",
                 showConfirmButton: true,
                 confirmButtonText: "Continue",
                 // timer: 1500

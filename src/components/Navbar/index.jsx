@@ -30,7 +30,7 @@ function Navbar() {
 
                 <Link to="/" className="brand">
                     <div className="title" style={{ color: scrolled ? "#000000" : '' }}>
-                        Pacific
+                        Roamly
                     </div>
                     <p>Travel Agency</p>
                 </Link>

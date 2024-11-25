@@ -29,13 +29,13 @@ function Card({ data, type }) {
                 </div>
                 <div className="details">
                     <div className="detail">
-                        <FaBath /> {data?.bathrooms}
+                        <FaBath /> {data?.bathrooms || 2}
                     </div>
                     <div className="detail">
-                        <IoIosBed /> {data?.bedrooms}
+                        <IoIosBed /> {data?.bedrooms || 2}
                     </div>
                     <div className="detail">
-                        <FaCar /> {data?.near}
+                        <FaCar /> {data?.near || 'City circle'}
                     </div>
                 </div>
             </div>

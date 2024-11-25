@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
@@ -22,9 +22,7 @@ function ReservationBar({ home, type }) {
         setActive(value);
     }
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-
+    const handleSearch = () => {
         const params = new URLSearchParams({
             destination,
             checkInDate,
@@ -32,7 +30,6 @@ function ReservationBar({ home, type }) {
             priceLimit,
         }).toString();
 
-        console.log(`Navigating to /${active}?${params}`);
 
         if (active == "destination") {
             priceLimit && dispatch(filterDestinationByPrice(priceLimit))
@@ -48,6 +45,9 @@ function ReservationBar({ home, type }) {
 
     };
 
+    // useEffect(() => {
+    //     handleSearch(e)
+    // }, [priceLimit, destination, dispatch]);
     return (
         <div
             className="ReservationBar container"
@@ -70,7 +70,10 @@ function ReservationBar({ home, type }) {
                 </div>
             )}
             <form
-                onSubmit={handleSearch}
+                onSubmit={(e) => {
+                    handleSearch()
+                    e.preventDefault()
+                }}
                 style={{ borderTopLeftRadius: home && 0 }}
             >
                 <div className="input">
@@ -123,13 +126,11 @@ function ReservationBar({ home, type }) {
                             value={priceLimit}
                             onChange={(e) => setPriceLimit(e.target.value)}
                         >
-                            <option value="100">100</option>
                             <option value="200">200</option>
-                            <option value="300">300</option>
                             <option value="400">400</option>
-                            <option value="500">500</option>
                             <option value="600">600</option>
-                            <option value="700">700</option>
+                            <option value="800">800</option>
+                            <option value="1000">1000</option>
                         </select>
                     </div>
                 </div>

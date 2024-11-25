@@ -16,11 +16,14 @@ function Destination() {
   const destination = searchParams.get("destination") || "";
   const priceLimit = searchParams.get("priceLimit") || "";
   const dispatch = useDispatch()
-  const tours = useSelector(state => state.destination.destinations)
+  const tours = useSelector(state => state.destination.filteredDestinations)
 
 
   useEffect(() => {
     dispatch(fetchDestinations());
+  }, [dispatch]);
+
+  useEffect(() => {
     if (destination) {
       dispatch(filterDestinationByTitle(destination));
     }

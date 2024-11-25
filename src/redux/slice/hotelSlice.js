@@ -27,6 +27,7 @@ export const fetchHotels = createAsyncThunk(
 
 const initialState = {
   hotels: [],
+  filteredHotels: [],
   loading: false,
   error: null
 };
@@ -36,13 +37,18 @@ export const hotelSlice = createSlice({
   initialState,
   reducers: {
     filterHotelsByPrice: (state, action) => {
-      state.hotels = state.hotels.filter((elem) => elem.price < action.payload);
+      state.filteredHotels = state.hotels.filter(
+        (elem) => Number(elem.price) <= Number(action.payload)
+      );
     },
     filterHotelsByName: (state, action) => {
       const searchTerm = action.payload.toLowerCase();
-      state.hotels = state.hotels.filter((elem) =>
+      state.filteredHotels = state.hotels.filter((elem) =>
         elem.title.toLowerCase().includes(searchTerm)
       );
+    },
+    resetFilters: (state) => {
+      state.filteredHotels = state.hotels;
     }
   },
   extraReducers: (builder) => {
@@ -53,6 +59,7 @@ export const hotelSlice = createSlice({
       .addCase(fetchHotels.fulfilled, (state, action) => {
         state.loading = false;
         state.hotels = action.payload;
+        state.filteredHotels = action.payload;
       })
       .addCase(fetchHotels.rejected, (state, action) => {
         state.loading = false;
@@ -60,6 +67,7 @@ export const hotelSlice = createSlice({
       });
   }
 });
-export const { filterHotelsByPrice, filterHotelsByName } = hotelSlice.actions;
+export const { filterHotelsByPrice, filterHotelsByName, resetFilters } =
+  hotelSlice.actions;
 // Action creators and reducer export
 export default hotelSlice.reducer;

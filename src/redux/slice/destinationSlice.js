@@ -27,7 +27,7 @@ export const fetchDestinations = createAsyncThunk(
 
 const initialState = {
   destinations: [],
-  backdestinations: [],
+  filteredDestinations: [],
   loading: false,
   error: null
 };
@@ -37,18 +37,14 @@ export const destinationsSlice = createSlice({
   initialState,
   reducers: {
     filterDestinationByTitle: (state, action) => {
-      const searchTerm = action.payload.trim().toLowerCase(); // trim and convert search term to lowercase
-      if (searchTerm === "") {
-        // If the search term is empty, don't filter and return all data
-        return;
-      }
-      state.destinations = state.destinations.filter(
-        (elem) => elem.title && elem.title.toLowerCase().includes(searchTerm) // ensure elem.title is defined
+      const searchTerm = action.payload.toLowerCase();
+      state.filteredDestinations = state.destinations.filter((elem) =>
+        elem.title.toLowerCase().includes(searchTerm)
       );
     },
     filterDestinationByPrice: (state, action) => {
-      state.destinations = state.destinations.filter(
-        (elem) => elem.price < action.payload
+      state.filteredDestinations = state.destinations.filter(
+        (elem) => Number(elem.price) <= Number(action.payload)
       );
     }
   },
@@ -60,6 +56,7 @@ export const destinationsSlice = createSlice({
       .addCase(fetchDestinations.fulfilled, (state, action) => {
         state.loading = false;
         state.destinations = action.payload;
+        state.filteredDestinations = action.payload;
       })
       .addCase(fetchDestinations.rejected, (state, action) => {
         state.loading = false;

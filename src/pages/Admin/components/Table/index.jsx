@@ -7,12 +7,14 @@ import { fetchDestinations } from "../../../../redux/slice/destinationSlice";
 import { v4 as uuidv4 } from "uuid";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { fetchContact } from "../../../../redux/slice/contactSlice";
 
 function Table({ active }) {
     const dispatch = useDispatch();
     const bookings = useSelector((state) => state.bookings.bookings);
     const destinations = useSelector((state) => state.destination.destinations);
     const hotels = useSelector((state) => state.hotel.hotels);
+    const contact = useSelector((state) => state.contact.contact);
 
     const [rows, setRows] = useState([]);
 
@@ -20,6 +22,7 @@ function Table({ active }) {
     const bookingRows = ["name", "email", "destination", "checkInDate", "checkOutDate", "message", "status"];
     const hotelRows = ["title", "price", "location", "bathrooms", "bedrooms", "review", "delete"];
     const destinationRows = ["title", "price", "location", "bathrooms", "bedrooms", "review", "delete"];
+    const contactRows = ["name", "email", "subject", "message"];
 
     // Data selection based on `active`
     const data = useMemo(() => {
@@ -30,10 +33,15 @@ function Table({ active }) {
                 return hotels;
             case "destinations":
                 return destinations;
+            case "contact":
+                return contact;
+
+
+
             default:
                 return [];
         }
-    }, [active, bookings, hotels, destinations]);
+    }, [active, bookings, hotels, destinations, contact]);
 
     // Set rows based on `active`
     useEffect(() => {
@@ -49,6 +57,10 @@ function Table({ active }) {
             case "destinations":
                 dispatch(fetchDestinations());
                 setRows(destinationRows);
+                break;
+            case "contact":
+                dispatch(fetchContact());
+                setRows(contactRows);
                 break;
             default:
                 break;

@@ -24,6 +24,9 @@ function Navbar({ active, setactive }) {
                     <button className={active == 'destinations' ? 'active' : ""} onClick={() => {
                         setactive('destinations')
                     }}>Destinations</button>
+                    <button className={active == 'contact' ? 'active' : ''} onClick={() => {
+                        setactive('contact')
+                    }}>Contact</button>
                     <button className={active == 'add' ? 'active' : ""} onClick={() => {
                         setactive('add')
                     }}>Add New</button>

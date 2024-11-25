@@ -10,13 +10,13 @@ function AskQuote() {
                     backgroundImage: `url(${QuoteImg})`
                 }}
             >
-                <div className="overlay"></div> <h1>We Are Pacific A Travel Agency</h1>
+                <div className="overlay"></div> <h1>We Are Roamly A Travel Agency</h1>
                 <p>
                     We can manage your dream building A small river named Duden flows by
                     their place
                 </p>
                 <div className="btnCont">
-                    <a href="mailto: info@yourdomain.com">Ask for a quote</a>
+                    <a href="mailto: roamly@mail.eu">Ask for a quote</a>
                 </div>
             </div>
         </div>

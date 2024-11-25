@@ -6,24 +6,30 @@ import Swal from 'sweetalert2';
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
+        setLoading(true); // Set loading state
+
         const credentials = { username, password };
 
         try {
             const response = await axios.post(import.meta.env.VITE_APP_BASE_URL + 'login', credentials);
             if (response.status === 200) {
                 localStorage.setItem('login', 'true');
-                window.location.reload();
+                window.location.reload(); // Refresh the page on successful login
             }
         } catch (error) {
             console.error('Login failed:', error.response?.data?.message || error.message);
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: "'Invalid credentials. Please try again.'",
+                title: "Invalid credentials. Please try again.",
                 showConfirmButton: true,
             });
+        } finally {
+            setLoading(false); // Reset loading state
         }
     };
 
@@ -48,7 +54,9 @@ function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button type='submit' >Log in</button>
+            <button type="submit" disabled={loading}>
+                {loading ? 'Logging in...' : 'Log in'}
+            </button>
         </form>
     );
 }
